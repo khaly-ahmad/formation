@@ -1,0 +1,106 @@
+body{
+    background-color: antiquewhite;
+    display: flex ;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+.phone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 720px;
+    border-radius: 25px;
+    background-color: black;
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
+}
+.app{
+    background-color: rgb(191, 238, 223);
+    width: 335px;
+    height: 620px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #171d23;
+    color: white;
+    overflow: auto;
+}
+header {
+    
+    display: grid;
+    grid-template-columns:66% 34%;
+    align-items: center;
+    border-bottom: .5px solid #404142;
+    height: 60px;
+    
+}
+.name{
+    margin-left: 10px;
+    margin-right: 100px;
+}
+.icons{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+i{
+    font-size: 25px;
+}
+.b1{
+    margin-left: 15px;
+    width: 40px;
+}
+.b2{width: 60px;}
+.b3{width: 80px;}
+.chats{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    
+}
+.detail{
+    line-height: 5px;
+}
+.bxs-user-circle{
+    margin-left: 5px;
+    font-size: 60px;
+    color: #c8c8f1;
+}
+p{font-size: 15px;}
+.number{
+    background-color: rgb(8, 138, 43);
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 100px;
+    bottom: -14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: black;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 5px;
+    height:60px;
+    background-color: #171d23;
+    border-top: .5px solid #404142;
+    position: absolute;
+    right: 0px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+h4{
+    margin-top: 0;
+}

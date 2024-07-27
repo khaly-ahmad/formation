@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+button{
+    background-color: aquamarine;
+    width: 10em;
+    height: 50px;
+    font-size: larger;
+    font-weight: bold;
+    border: 1px solid goldenrod;
+    border-radius: 50vh;
+    cursor: pointer;
+    box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.2);
+    animation: btn 5s;
+}
+button:hover{
+    background-color: #286e2b;
+    transition: .5s;
+    
+}
+button:active{
+    background-color: #343e38;
+    color: #ffffff;
+    transform: scale(.8) translateY(10px);
+    box-shadow: none;
+}
+@keyframes btn {
+    from{
+        transform:translateY(500px) scale(.2);
+        
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
