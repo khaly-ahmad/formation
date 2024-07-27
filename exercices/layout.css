@@ -1,7 +1,7 @@
 body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: gray;
+    background-color: rgb(51, 48, 48);
     justify-content: center;
     gap: 10px;
     grid-template-areas: "header header header"
