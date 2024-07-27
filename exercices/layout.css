@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: gray;
+}
+
+footer,
+header {
+    background-color: blueviolet;
+}
+
+aside {
+    background-color: aquamarine;
+}
+
+div {
+    background-color: rgb(17, 126, 199);
+}
+
+body>* {
+    border: 4px solid black;
+    padding: 20px;
+}
