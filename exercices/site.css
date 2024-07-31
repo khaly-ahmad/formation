@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("photograph.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+header .name {
+    font-weight: bolder;
+    font-size: xx-large;
+    color: #f19514;
+    width: auto;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 380px;
+    max-width: 500px;
+    width: 100%;
+
+}
+
+ul li:first-child {
+    background-color: #f19514;
+    padding: 4px 8px;
+}
+
+ul {
+    list-style: none;
+} 
+
+a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: medium;
+}
+ 
+header form {
+    display: flex;
+    background-color: #f19514;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+header form input {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font-size: 16px;
+    margin: 0;
+    padding-left: 2px;
+}
+
+header form .btn {
+    font-size: 16px;
+    width: auto;
+    padding: 10px 30px;
+}
+
+main {
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+main div h1 {
+    font-size:80px;
+    font-weight: bolder;
+    padding-top: 15%;
+}
+
+main div h1 span {
+    color: #f19514;
+}
+ 
+main div p {
+    font-size: larger;
+    font-weight: 700;
+}
+ .login {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 320px;
+    border-radius: 24px;
+    backdrop-filter:blur(10px);
+    text-align: center;
+ }
+
+ div form {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    width: 320px;
+ }
+ div form h2 {
+    color: #f19514;
+    background-color: #ffff;
+    padding: 8px;
+    margin-bottom: 16px;
+    border-radius: 22px;
+ }
+ div form input {
+    background-color:transparent;
+    height: 44px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 2px gray solid;
+    outline: none;
+    font-size: larger;
+    color: gray;
+ }
+
+div form button {
+    background-color: #f19514;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: larger;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+div form p {
+    line-height: 28px;
+}
+
+div form p a {
+    color: #f19514;
+}
+.icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 8px 20px 30px;
+}
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
