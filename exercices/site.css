@@ -5,11 +5,13 @@
     box-sizing: border-box;
 }
 
-body {
+section {
     background-image: url("photograph.webp");
     background-size: cover;
     background-repeat: no-repeat;
+    padding-bottom: 20px;
 }
+
 header {
     display: flex;
     flex-direction: row;
@@ -18,6 +20,7 @@ header {
     align-items: center;
     padding: 15px 20px;
     text-transform: uppercase;
+    position: relative;
 }
 
 header .name {
@@ -27,7 +30,7 @@ header .name {
     width: auto;
 }
 
-ul {
+header ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,14 +41,14 @@ ul {
 
 }
 
-ul li:first-child {
+header li:first-child {
     background-color: #f19514;
     padding: 4px 8px;
 }
 
 ul {
     list-style: none;
-} 
+}
 
 a {
     text-decoration: none;
@@ -53,7 +56,7 @@ a {
     text-transform: uppercase;
     font-size: medium;
 }
- 
+
 header form {
     display: flex;
     background-color: #f19514;
@@ -76,15 +79,38 @@ header form .btn {
     padding: 10px 30px;
 }
 
+.about {
+   backdrop-filter: blur(10px);
+   padding: 50px;
+   width:200px;
+   height: 486px;
+   position: absolute;
+   top: 71px;
+   left: 0;
+   display: none;
+}
+
+
+.about ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
 main {
     margin-left: 5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
     color: white;
 }
+
 main div h1 {
-    font-size:80px;
+    font-size: 80px;
     font-weight: bolder;
     padding-top: 15%;
 }
@@ -92,36 +118,39 @@ main div h1 {
 main div h1 span {
     color: #f19514;
 }
- 
+
 main div p {
     font-size: larger;
     font-weight: 700;
 }
- .login {
+
+.login {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     width: 320px;
     border-radius: 24px;
-    backdrop-filter:blur(10px);
+    backdrop-filter: blur(10px);
     text-align: center;
- }
+}
 
- div form {
+div form {
     display: flex;
     flex-direction: column;
     padding: 50px 20px;
     width: 320px;
- }
- div form h2 {
+}
+
+div form h2 {
     color: #f19514;
     background-color: #ffff;
     padding: 8px;
     margin-bottom: 16px;
     border-radius: 22px;
- }
- div form input {
-    background-color:transparent;
+}
+
+div form input {
+    background-color: transparent;
     height: 44px;
     margin-bottom: 10px;
     padding-left: 10px;
@@ -130,7 +159,7 @@ main div p {
     outline: none;
     font-size: larger;
     color: gray;
- }
+}
 
 div form button {
     background-color: #f19514;
@@ -143,6 +172,7 @@ div form button {
     border-radius: 10px;
     margin-top: 8px;
 }
+
 div form p {
     line-height: 28px;
 }
@@ -150,15 +180,62 @@ div form p {
 div form p a {
     color: #f19514;
 }
+
 .icons {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 8px 20px 30px;
 }
+
 .icon {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
+}
+
+nav label i {
+    color: aliceblue;
+    font-size: 40px;
+    position: absolute;
+    top: 15px;
+    left: 160px;
+    display:none;
+}
+
+ nav label .bxs-x-circle,
+ nav label .bx-menu {
+    display:none;
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+}
+
+nav label > .bxs-x-circle {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label .bx-menu {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label .bxs-x-circle {
+    display: block;
+}
+
+nav > input[type="checkbox"]:checked ~ .about {
+    display: flex;
+}
+
+
+@media (max-width:985px) {
+    header ul {
+        display: none;
+    }
+    nav input + label .bx-menu {
+        display: block;
+    }
+
 }
