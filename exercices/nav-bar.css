@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: url('07.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 56.25vw;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+header nav .logo {
+    font-size: 40px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #ec700b;
+}
+
+header nav label i {
+    font-size: 40px;
+    padding-bottom: 4px;
+    color: #ec700b;
+}
+
+header nav label {
+    display: none;
+}
+
+.items a,
+header .vertical-nav a {
+    text-decoration: none;
+    padding: 5px 15px;
+    font-size: larger;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: black;
+}
+
+.vertical-nav {
+    float: right;
+    right: -100%;
+    flex-direction: column;
+    height: calc(100% - 64px);
+    width: 30%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    display: none;
+    border-radius: 5px;
+}
+
+header .vertical-nav a {
+    height: 100%;
+    padding-top: 15px;
+}
+
+.items a:hover,
+header .vertical-nav a:hover {
+    text-decoration: underline;
+    color: #ec700b;
+}
+
+.items a:active,
+header .vertical-nav a:active {
+    background-color: #ec700b;
+    border-radius: 5px;
+    color: white;
+}
+
+input:checked+nav #bx-menu {
+    display: none;
+}
+
+input {
+    display: none;}
+
+@media (max-width:715px) {
+    header nav #bx-menu {
+        display: block;
+    }
+
+    .items {
+        display: none;
+    }
+
+    input:checked~.vertical-nav {
+        display: flex;
+        animation: 1s vertical-nav;
+    }
+    @keyframes vertical-nav {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transition: translateX(0);
+        }
+    }
+
+    input:checked+nav #x-square {
+        display: block;
+    }
+}
+
+
+/*input:checked ~ .check .bx-menu {
+    display: none;
+}
+
+header nav .items > a:first-child {
+    background-color: #ec700b;
+    color: white;
+}
+
+.items a:active {
+    background-color: #ec700b;
+    color: white;
+}
+ @media (max-width: 715px) {
+   .items {
+    display: non;
+   }
+   input:checked ~ .items a {
+    display: block;
+   }
+ } */
