@@ -82,7 +82,8 @@ input:checked+nav #bx-menu {
 }
 
 input {
-    display: none;}
+    display: none;
+}
 
 @media (max-width:715px) {
     header nav #bx-menu {
@@ -97,10 +98,12 @@ input {
         display: flex;
         animation: 1s vertical-nav;
     }
+
     @keyframes vertical-nav {
         from {
             transform: translateX(100%);
         }
+
         to {
             transition: translateX(0);
         }
@@ -110,26 +113,178 @@ input {
         display: block;
     }
 }
-
-
-/*input:checked ~ .check .bx-menu {
-    display: none;
+/*description section ==============================*/
+.description {
+    background-color: #ec700b;
+    padding: 20px 20px;
+    color: white;
+    margin: 0 0 10px;
 }
 
-header nav .items > a:first-child {
+.description h1 {
+    text-transform: capitalize;
+    font-size: xx-large;
+}
+
+.description p {
+    font-size: larger;
+    line-height: 20px;
+    text-align: justify;
+}
+/*card section======================================*/
+.card-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 405px;
+    margin: 20px;
+    padding: 0 10px 20px;
+    text-align: center;
+    border: 4px solid #ec700b;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+section .card .background {
+    width: 100%;
+    height: 50%;
     background-color: #ec700b;
+    position: absolute;
+    z-index: -1;
+}
+
+section .card h1 {
+    margin: 40px 0 10px;
+    text-transform: uppercase;
     color: white;
 }
 
-.items a:active {
+section .card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #ffff;
+    border: 5px solid #ec700b;
+    margin: 5px;
+    padding: 5px;
+}
+/*name and job========================================*/
+section .card span {
+    font-size: x-large;
+    margin: 10px;
+    color: #ec700b;
+}
+
+h2{
+  font-size: xx-large;
+  text-transform: capitalize;  
+}
+/*button=========================================*/
+#btn {
+    display: flex;
+    border-radius: none;
+
+}
+
+#btn button {
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    padding: 8px 35px;
+    border: none;
     background-color: #ec700b;
+    cursor: pointer;
+}
+
+/*icon card=========================================*/
+section .card .icons {
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+section .card div > * {
+    font-size: xx-large;
+    padding: 5px;
+    border-radius: 50%;
     color: white;
 }
- @media (max-width: 715px) {
-   .items {
-    display: non;
-   }
-   input:checked ~ .items a {
-    display: block;
-   }
- } */
+
+section .card div > *:first-child {
+    background-color: #0404e0;
+}
+
+section .card div .bxl-linkedin {
+    background-color: #14afe8;
+}
+
+section .card div .bxl-youtube {
+    background-color: red;
+}
+
+section .card div .bxl-twitter {
+    background-color: #069fd6;
+}
+/* main section ======================================*/
+main {
+    margin: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.img-item {
+    max-width: 300px;
+    border: #ec700b 2px solid;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, .3);
+}
+
+main .img-item .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+main .img-item .image-detail {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+}
+
+main .img-item .image-detail .profile {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image-detail .profile-detail {
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+p {
+    line-height: 18px;
+}
+
+span {
+    text-transform: capitalize;
+    font-size: larger;
+    font-weight: bold;
+}
