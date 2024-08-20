@@ -111,8 +111,8 @@ section .menu-image {
     padding: 20px 16px;
     box-shadow:  5px 5px 5px #2b2b2b80;
     border-radius: 5px;
-    max-width: 250px;
-    min-width: 100px;
+    flex: .5 0 220px;
+    max-width: 260px;
 }
 
 section .menu-image img {
