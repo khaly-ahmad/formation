@@ -5,14 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #slider {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        img {
+            width: 100px;
+            height: 200px;
+            object-fit: cover;
+        }
+        #next,#previous,#ajout,#rejet,#btn,
+        #add,#add_Btn,#remove_btn,#name,
+        #email,#submit{
+            padding: 10px 26px;
+            border-radius: 10px;
+            border: 5px solid burlywood;
+            font-size: larger;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
 </head>
 
-<body><!--
+<body>
+    <button id="ajout">bouton d'ajout</button>
+    <button id="rejet">rejet</button>
+    <p>vous avez cliqué <span id="conteur"> 0 </span> fois</p> <hr>
+
+
+    <!--
     <ul id="menu">
         <li>accueil</li>
         <li>about</li>
         <li>contact</li>
-    </ul>-->
+    </ul>
 
 
     <div id="content">
@@ -45,6 +75,44 @@
     <div id="banner" class="header">
         <h1>Mon site web</h1>
     </div>
+    <button id="btn">afficher</button>
+    <p id="p">vous avez appuyer sur une touche</p>
+
+    <form action="#">
+        <p>condition d'utilisation</p>
+        <input type="checkbox" id="checkbox">
+    </form>-->
+    <button id="btn">cliquez-moi</button>
+    <ul id="list-item"></ul>
+    <hr>
+    <div id="background" style="width: 200px; height:200px; background-color: bisque; border-radius: 50%; "></div>
+    <hr>
+    <input type="text" name="" id="add">
+    <button id="add_Btn">add</button>
+    <button id="remove_btn">remove</button>
+    <ul id="ul">
+
+    </ul>
+    <hr>
+    <div id="slider">
+        <button id="previous">previous</button>
+        <div id="image">
+        <img src="../04.jpg" style="
+        width: 250px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 25px;
+        border: 5px solid burlywood;">
+        </div>
+        <button id="next">next</button>
+    </div>
+    <hr>
+    <form action="#">
+        <input id="name" type="text" placeholder="name">
+        <input id="email" type="email" placeholder="email">
+        <button id="submit" type="submit"> soumettre</button>
+    </form>
+
     <script>
         /*const PI = 3.14;
         let geometrie = ()=>{
@@ -303,6 +371,8 @@
         const firstchild=menu.firstElementChild;
         firstchild.classList.add("highligh")
         console.log(firstchild)*/
+        /*
+=========================================================
 
         const content = document.getElementById("content");
         const newListItem = document.createElement("p");
@@ -336,6 +406,102 @@
         banner.classList.add("blue-background");
         banner.classList.remove("header");
         banner.firstElementChild.setAttribute("class","highlight");
+
+        let btn=document.getElementById("btn");
+        let p=document.getElementById("p");
+        btn.addEventListener("click", function(){
+            p.textContent="là vous avez rellement clické sur le boutbon"
+        })
+
+        let checkbox=document.getElementById("checkbox")
+        checkbox.addEventListener("click",function(){
+            if (btn.addEventListener(event)){
+                alert("vous avez bien fait de le cocher");
+            }
+        })
+*/
+
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            let li = document.createElement("li");
+            li.textContent = "nouveau element";
+            li.addEventListener("click", function () {
+                li.remove();
+            });
+            document.getElementById("list-item").append(li);
+        });
+
+        const background = document.getElementById("background");
+        background.addEventListener("mouseover", function () {
+            background.style.backgroundColor = "red";
+            background.addEventListener("mouseout", function () {
+                background.style.backgroundColor = "gray";
+            })
+        })
+
+        const submit = document.getElementById("submit");
+        submit.addEventListener("click", function () {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            if (name == "" || email == "") {
+                alert("inscription non valid");
+            } else {
+                alert("felicitation vous avez bien saisi le formulaire");
+            }
+        })
+
+        const ajout = document.getElementById("ajout");
+        const rejet = document.getElementById("rejet");
+        let count = 0;
+        ajout.addEventListener("click", function () {
+            count++;
+            document.getElementById("conteur").textContent = count
+        })
+
+        rejet.addEventListener("click", function () {
+            count=0;
+            document.getElementById("conteur").textContent =count
+        })
+
+        const add = document.getElementById("add");
+        const add_Btn = document.getElementById("add_Btn");
+        const remove_btn = document.getElementById("remove_btn");
+        add_Btn.addEventListener("click", function () {
+            const li = document.createElement("li");
+            li.textContent = add.value;
+            document.getElementById("ul").append(li);
+            add.value="";
+        });
+
+        remove_btn.addEventListener("click", function () {
+            let parent = document.getElementById("ul");
+            const n = parent.childElementCount;
+            if (n > 0) {
+                const lastchild = parent.children[n - 1];
+                parent.removeChild(lastchild)
+            } else {
+                document.write("il n'y a rien à supprimer");
+            }
+        });
+
+        const images = ["../04.jpg", "../pic02.jpg", "../05.jpg", "../06.jpg", "../07.jpg", "../09.jpg", "../10.jpg"];
+        let currentImage = 0;
+
+        function showImage(index) {
+            let image = document.getElementById("image");
+            image.innerHTML = ' <img src="' + images[index] + '" style="width: 250px;height: 300px;object-fit: cover;border-radius: 25px;border: 5px solid burlywood;">'
+        }
+
+        document.getElementById("previous").addEventListener("click", function () {
+            currentImage = (currentImage === 0) ? images.length - 1 : currentImage - 1;
+            showImage(currentImage);
+        });
+
+        document.getElementById("next").addEventListener("click", function () {
+            currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;
+            showImage(currentImage);
+        });
+        showImage(currentImage);
     </script>
 
 </body>

@@ -46,6 +46,11 @@ button:active{
     font-family: arial;
 }
 
+:root {
+    --orange:#e48613;
+    --blanc:white;
+}
+
 header {
     background-image: url('../images/hiver.webp');
     background-repeat: no-repeat;
@@ -57,7 +62,7 @@ header {
 nav {
     display: flex;
     justify-content: space-between;
-    color: #e48613;
+    color: var(--orange);
     align-items: center;
     gap: 10px;
 }
@@ -75,7 +80,7 @@ header nav .menu {
 header nav .menu a {
     font-size: 20px;
     font-weight: 500;
-    color: white;
+    color: var(--blanc);
     text-decoration: none;
     text-transform: capitalize;
     padding: 3px 8px;
@@ -88,7 +93,7 @@ header nav .menu a:hover {
 header nav .menu a:active,
 header nav .menu a:first-child {
     text-decoration: none;
-    background-color: #e48613;
+    background-color: var(--orange);
     border-radius: 5px;
 }
 
@@ -101,18 +106,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align:justify;
     line-height: 20px;
     margin: 10px 20px ;
 }
 
 section .menu-image {
-    border: #e48613 3px solid;
+    border: var(--orange) 3px solid;
     padding: 20px 16px;
     box-shadow:  5px 5px 5px #2b2b2b80;
     border-radius: 5px;
     flex: .5 0 220px;
-    max-width: 260px;
+    max-width: 270px;
 }
 
 section .menu-image img {
@@ -146,20 +150,24 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px; 
-    border: #e48613 2px solid;
+    width: 350px;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, .3);
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px 0;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
 }
 
-.contact h2 {
-    color: #e48613;
+form h2 {
+    color: var(--orange);
     font-size: 40px;
     margin-top: 10px;
 }
 
 input[type="email"],
+input[type="password"],
+input[type="text"],
 textarea,
 button {
     width: 90%;
@@ -167,26 +175,72 @@ button {
     margin: 15px;
     padding-left: 10px;
 }
-
+input[type="password"],
+input[type="text"],
 input[type="email"] {
     height: 40px;
     border: none;
-    border-bottom: #e48613 2px solid;
+    border-bottom: var(--orange) 2px solid;
 }
 
 textarea {
     height: 75px;
-    border: #e48613 2px solid;
+    border: var(--orange) 2px solid;
 }
 
 button {
     padding: 10px;
-    background-color: #e48613;
+    background-color:var(--orange);
     border: none;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
     border-radius: 50vh;
-    color: white;
+    color: var(--blanc);
     font-size: x-large;
+}
+
+.inscription {
+    position: relative;
+    width: 350px;
+    margin: 20px;
+    overflow: hidden;
+    background-color: var(--blanc);
+    border-radius: 20px;
+    z-index: 9;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 150%;
+    height:150%;
+    background-image: conic-gradient(transparent 5%, var(--orange));
+    animation: animation 3s linear infinite;
+    z-index: -2;
+}
+
+form::after {
+    content: '';
+    position: absolute;
+    background-color: var(--blanc);
+    z-index: -1;
+    inset: 2px;
+    border-radius: 20px;
+}
+
+label span {
+    padding-left: 18px;
+}
+
+@keyframes animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width:700px) {
