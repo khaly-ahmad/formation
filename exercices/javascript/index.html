@@ -28,6 +28,44 @@
         li {
             list-style: none;
         }
+
+        #calculatrice {
+            border: 5px solid burlywood;
+            width: 239px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 30%;
+            padding: 20px 10px;
+            border-radius: 25px;
+            background-color: #0f0c0c;
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            font-size: 25px;
+            color: white;
+            background-color: #332e2e;
+        }
+        .key{
+            width: 100%;
+            margin: -5px 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .key button{
+            width: 60px;
+            height: 35px;
+            font-size: 25px;
+            border-radius: 15px;
+            color: white;
+            background-color: #332e2e;
+            border: 2px gray solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -112,6 +150,55 @@
         <input id="email" type="email" placeholder="email">
         <button id="submit" type="submit"> soumettre</button>
     </form>
+
+    <div id="menu_principal" style="
+        width: 450px;
+        border: 5px solid burlywood;
+        text-align: center;
+        font-size: x-large;
+        ">
+        <label>pour afficher plus de contenu cocher ici <input type="checkbox" id="check"></label>
+        <ul id="other-content" style="display: none;">
+            <li>il n'y a rien a voir dans ce contenu</li>
+            <li>il n'y a rien a voir dans ce contenu</li>
+            <li>il n'y a rien a voir dans ce contenu</li>
+            <li>il n'y a rien a voir dans ce contenu</li>
+            <li>il n'y a rien a voir dans ce contenu</li>
+        </ul>
+    </div>
+
+    
+    <div id="calculatrice">
+        <input type="text" id="display">
+        <br>
+        <div class="key">
+            <button onclick="add_to_display('1')">1</button>
+            <button onclick="add_to_display('2')">2</button>
+            <button onclick="add_to_display('3')">3</button>
+            <button onclick="add_to_display('+')">+</button>
+        </div>
+        <br>
+        <div class="key">
+            <button onclick="add_to_display('4')">4</button>
+            <button onclick="add_to_display('5')">5</button>
+            <button onclick="add_to_display('6')">6</button>
+            <button onclick="add_to_display('-')">-</button>
+        </div>
+        <br>
+        <div class="key">
+            <button onclick="add_to_display('7')">7</button>
+            <button onclick="add_to_display('8')">8</button>
+            <button onclick="add_to_display('9')">9</button>
+            <button onclick="add_to_display('*')">*</button>
+        </div>
+        <br>
+        <div class="key">
+            <button onclick="clear_display()">C</button>
+            <button onclick="add_to_display('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="add_to_display('/')">/</button>
+        </div>
+    </div>
 
     <script>
         /*const PI = 3.14;
@@ -447,7 +534,7 @@
                 alert("inscription non valid");
             } else {
                 alert("felicitation vous avez bien saisi le formulaire");
-            }
+            } 
         })
 
         const ajout = document.getElementById("ajout");
@@ -502,6 +589,28 @@
             showImage(currentImage);
         });
         showImage(currentImage);
+
+        document.getElementById("check").addEventListener("click",function(){
+            if (this.checked){
+                document.getElementById("other-content").style.display=""
+            } else {
+                document.getElementById("other-content").style.display="none"
+            }
+        })
+
+        function add_to_display(value){
+            document.getElementById("display").value+=value;
+        }
+
+        function calculate(){
+            let result=eval(document.getElementById("display").value)
+            document.getElementById("display").value=result
+        }
+
+        function clear_display(){
+            document.getElementById("display").value=""; 
+        }
+
     </script>
 
 </body>
