@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulaire.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>formulaire-js</title>
+</head>
+
+<body>
+    <div id="login_form">
+        <h2>login</h2>
+        <label for="email">
+            <i class='bx bx-user'></i>
+            <input type="email" id="email" placeholder="enter your email">
+        </label>
+        <label for="password">
+            <i class='bx bx-lock-alt'></i>
+            <input type="password" id="password" placeholder="enter your password">
+        </label>
+        <div class="detail">
+            <label><input type="checkbox" id="checkbox">remember me</label>
+            <a href="#">forgot my password</a>
+        </div>
+        <button type="submit">login</button>
+        <span>don't have a <a href="#"> count ?</a></span>
+    </div>
+    <div class="sign_in">
+        <h2>sign in</h2>
+        <label for="email">
+            <i class='bx bx-user'></i>
+            <input type="email" id="email" placeholder="enter your email" required>
+        </label>
+        <label for="password">
+            <i class='bx bx-lock-alt'></i>
+            <input type="password" id="password" placeholder="password" required>
+        </label>
+        <label for="password">
+            <i class='bx bx-lock-alt'></i>
+            <input type="password"  id="password" placeholder="confirm" required>
+        </label>
+        <button type="submit">sign in</button>
+        <span>already have a <a href="#"> count ?</a></span>
+    </div>
+    <script>
+        const sign_in = document.querySelector(".sign_in");
+        const login = document.getElementById("login_form");
+        const show_signin = document.querySelector("#login_form span a");
+        const show_login = document.querySelector(".sign_in span a");
+        sign_in.style.display = "none";
+        show_signin.addEventListener("click", function () {
+            login.style.display = "none";
+            sign_in.style.display = "";
+        })
+
+        show_login.addEventListener("click", function () {
+            sign_in.style.display = "none";
+            login.style.display = "";
+        })
+    </script>
+</body>
+
+</html>

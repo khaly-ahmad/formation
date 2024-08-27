@@ -1,0 +1,107 @@
+* {
+    font-family: arial;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1ba2a2;
+}
+
+body #login_form,
+.sign_in {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px 15px;
+    border-radius: 25px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #1ba2a2;
+    font-size: 40px;
+}
+
+#email,
+#password,
+button {
+    width: 300px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+#email,
+#password {
+    border: 2px #1ba2a2 solid;
+    border-bottom: #1ba2a2 2px solid;
+    font-size: 20px;
+    padding-left: 55px;
+}
+
+#login_form label,
+.sign_in label {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+i {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    background-color: #1ba2a2;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    left: 10px;
+    padding-top: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+button {
+    border: none;
+    font-size: 25px;
+    background-color: #1ba2a2;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.detail {
+    font-size: medium;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 0 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+span {
+    font-size: large;
+    color: black;
+    margin:8px;
+}

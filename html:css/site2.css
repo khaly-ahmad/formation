@@ -217,7 +217,7 @@ form::before {
     width: 150%;
     height:150%;
     background-image: conic-gradient(transparent 5%, var(--orange));
-    animation: animation 3s linear infinite;
+    animation: animation 3s linear ;
     z-index: -2;
 }
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title> my profile</title>
+    <style>
+        .container {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            background-color: #073636;
+        }
+
+        #square {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        #vertical_square {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        #circle {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: (-50%, -50%);
+            background-color: #0d0d53;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="square">
+
+    </div>
+
+    <div id="vertical_square">
+
+    </div>
+
+    <div id="circle">
+
+    </div>
+    <script>
+
+        /*const squareV = document.getElementById('vertical_square');
+        let positio = 0;
+        let directionV = 1;
+        let speedV = 3
+        function moveSquareV(){
+            positionV +=directionV * speedV;
+            squareV.style.top=`${positionV}px`
+            if (positionV + 70 >= innerHeight || positionV <= 0){
+                directionV *= -1;
+            }
+        }
+        setInterval(moveSquareV,20)
+
+        /*function randomPosition(max) {
+            return Math.floor(Math.random() * max)
+        }
+
+        for (let i = 0; i < 10; i++) {
+            const div_container = document.createElement('div');
+            div_container.className = 'container';
+            const positionX = randomPosition(window.innerWidth - 50);
+            const positionY = randomPosition(window.innerHeight - 50);
+            document.body.appendChild(div_container);
+            div_container.style.left = `${positionX}px`;
+            div_container.style.top = `${positionY}px`;
+        }
+        const square = document.getElementById('square');
+        let square_positio = 0;
+        let direction = 1;
+        const speed = 2;
+        function moveSquare() {
+            const windowWidth = window.innerWidth;
+            square_position += direction * speed;
+            square.style.left=`${square_position}px`
+            if(square_position + square.offsetWidth >= windowWidth || square_position <= 0){
+                direction *= -1;
+            }
+        }
+
+        setInterval(moveSquare,10);*/
+
+        let position = window.innerWidth / 2 - 25;
+        const circle = document.getElementById('circle');
+        circle.style.left = position + "px"
+        document.addEventListener('keydown', function (event) {
+            if (even.key === "ArrowLeft" && position > 0) {
+                position -= 10
+            } else if (event.key === "ArrowRight" && (position + circle.offsetWidth) < window.innerWidth) {
+                position += 10
+            }
+            circle.style.left = position + "px"
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -210,7 +210,7 @@ nav label i {
 }
 
 input[type="checkbox"] {
-    opacity: 0;
+    display: none;
 }
 
 nav label > .bxs-x-circle {

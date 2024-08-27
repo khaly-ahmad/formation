@@ -1,0 +1,20 @@
+.triangle {
+    position: relative;
+    width: 70px;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 60px solid blue;
+}
+
+.triangle::before {
+    content: "";
+    top: 60px;
+    left: -60px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 70px solid blue;
+}
