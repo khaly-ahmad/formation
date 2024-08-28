@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         #slider {
             display: flex;
             justify-content: space-evenly;
@@ -79,10 +83,101 @@
             align-items: center;
             justify-content: center;
         }
+
+        #galerie {
+            display: flex;
+            width: 100vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        #galerie img {
+            width: 60px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        #galerie .agrandi {
+            width: 300px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        #color {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            cursor: grab;
+            background-color: black;
+        }
+
+        #text-container {
+            border: burlywood 2px solid;
+            margin: 10px 10px;
+            width: 100vw;
+        }
+
+        #text-animation {
+            text-align: justify;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            height: 60vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section #jeux {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            background-color: #c29c6d;
+            border-radius: 25px;
+            padding: 20px 8px;
+        }
+
+        #jeux>*,
+        #result div {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+
+        section #jeux #choices {
+            font-size: large;
+        }
+
+        section #jeux #choices button {
+            width: 30%;
+            height: 40px;
+            font-size: 30px;
+            border: none;
+            border-radius: 20px;
+            background-color: #504646;
+        }
+
+        #result div {
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            font-size: 60px;
+            margin-bottom: 8px;
+            background-color: #625757;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
 <body>
+
     <button id="ajout">bouton d'ajout</button>
     <button id="rejet">rejet</button>
     <p>vous avez cliqué <span id="conteur"> 0 </span> fois</p>
@@ -138,6 +233,7 @@
     <ul id="list-item"></ul>
     <hr>
     <div id="background" style="width: 200px; height:200px; background-color: bisque; border-radius: 50%; "></div>
+
     <hr>
     <input type="text" name="" id="add">
     <button id="add_Btn">add</button>
@@ -219,6 +315,60 @@
         <h5><span></span> password</h5>
     </div>
 
+    <hr>
+    <h1>heure actuelle</h1>
+    <div id="clock"></div>
+    <div id="galerie">
+        <img src="../04.jpg">
+        <img src="../05.jpg">
+        <img src="../06.jpg">
+        <img src="../07.jpg">
+        <img src="../09.jpg">
+        <img src="../10.jpg">
+        <img src="../04.jpg">
+    </div>
+
+
+    <div id="text-container">
+        <p id="text-animation">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolore magni eveniet minus accusamus debitis!
+            Vitae placeat aliquam quos velit numquam mollitia, totam ducimus ratione consequuntur quam, est, saepe
+            veniam nemo quas veritatis asperiores iste? Doloremque similique, dignissimos distinctio voluptate
+            voluptates, recusandae vero quas perspiciatis tempora corrupti velit perferendis quae rem placeat nemo,
+            laboriosam aliquam consequatur optio quidem harum. Cum facere, eos quasi aperiam, explicabo sequi earum
+            obcaecati corrupti unde eligendi voluptatem in at quidem. Temporibus at mollitia, nesciunt nostrum adipisci
+            architecto eos quos in velit culpa. Quasi quisquam ratione recusandae distinctio odit quia eligendi voluptas
+            dolorem. Harum repellendus quae esse id inventore sed culpa quo, voluptatem corrupti. Sed nostrum
+            cupiditate, eius inventore numquam placeat. Esse tempore adipisci exercitationem nemo provident rerum quia?
+            Eos, facilis illo? Voluptatum quo recusandae eligendi modi reiciendis corrupti sapiente adipisci harum
+            provident dolorem voluptatibus ea quisquam a quam earum, iste non aspernatur aut ratione reprehenderit?
+            Aspernatur sequi nostrum sapiente temporibus adipisci, amet blanditiis numquam saepe commodi dolore. Quia
+            odio error dicta non ipsum illum molestiae quae debitis ipsam distinctio, iure consequatur facilis corrupti
+            accusamus voluptas iste voluptates nemo magni, maiores quasi soluta illo. Perferendis consequatur accusamus
+            dignissimos voluptatibus recusandae facere tenetur inventore soluta libero non!
+        </p>
+    </div>
+
+    <section>
+        <div id="jeux">
+            <h1>pierre feuille ciseau </h1>
+            <div id="player">
+                <h2>you</h2>
+                <h2>computer</h2>
+            </div>
+            <div id="result">
+                <div id="yourchoice"></div>
+                <div id="computerchoice"></div>
+            </div>
+            <h2 id="score"></h2>
+            <div id="choices">
+                <button onclick="yourchoice('✊')">✊</button>
+                <button onclick="yourchoice('✋')">✋</button>
+                <button onclick="yourchoice('✌️')">✌️</button>
+            </div>
+        </div>
+    </section>
+    <div id="color" draggable="true"></div>
     <script>
         /*const PI = 3.14;
         let geometrie = ()=>{
@@ -596,6 +746,11 @@
             image.innerHTML = ' <img src="' + images[index] + '" style="width: 250px;height: 300px;object-fit: cover;border-radius: 25px;border: 5px solid burlywood;">'
         }
 
+        setInterval(function () {
+            currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;
+            showImage(currentImage)
+        }, 5000);
+
         document.getElementById("previous").addEventListener("click", function () {
             currentImage = (currentImage === 0) ? images.length - 1 : currentImage - 1;
             showImage(currentImage);
@@ -638,7 +793,7 @@
             const spanContent = document.querySelector("h5 span");
             if (passwordLength === 0) {
                 h5.style.display = "none"
-            }else if (passwordLength <= 4) {
+            } else if (passwordLength <= 4) {
                 spanContent.textContent = "week";
             } else if (passwordLength > 4 && passwordLength <= 8) {
                 spanContent.textContent = "medium";
@@ -647,6 +802,91 @@
             }
         }
         password.addEventListener("input", passwordState);
+
+        function showHours() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+            const updateHours = `${hours}:${minutes}:${seconds}`
+
+            document.getElementById("clock").textContent = updateHours;
+            document.getElementById("clock").style.fontSize = "60px"
+        }
+        showHours();
+        setInterval(showHours, 1000);
+
+        const img = Array.from(document.querySelectorAll("#galerie img"));
+        img.forEach(function (image) {
+            image.addEventListener("click", function () {
+                if (image.classList.contains('agrandi')) {
+                    image.classList.remove('agrandi');
+                } else {
+                    image.classList.add('agrandi');
+                }
+            })
+        });
+
+        const color = document.getElementById("color")
+        color.addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData('text/pain', null)
+        });
+
+        document.addEventListener('dragover', function (event) {
+            event.preventDefault();
+        })
+
+        document.addEventListener('drop', function (event) {
+            event.preventDefault();
+            const x = event.clientX - color.offsetWidth / 2;
+            const y = event.clientY - color.offsetHeight / 2;
+
+            color.style.left = `${x}px`
+            color.style.top = `${y}px`
+        });
+
+        color.addEventListener('dragend', function () {
+            console.log("deplacement reussi")
+        })
+
+        const text = (document.getElementById('text-animation'));
+        const array_text = text.textContent.split(" ");
+        let index_array = 0;
+        text.textContent = "";
+
+        function arrayFunction() {
+            if (index_array < array_text.length) {
+                text.textContent += " " + array_text[index_array];
+                index_array++
+            }
+        }
+        setInterval(arrayFunction, 100)
+
+
+
+        let you = document.getElementById('yourchoice');
+        let computer = ['✊', '✋', '✌️'];
+        function computerchoice() {
+            let random_index = Math.floor(Math.random() * 3);
+            document.getElementById("computerchoice").textContent = computer[random_index];
+            return random_index;
+        }
+
+        function yourchoice(choix) {
+            document.getElementById('yourchoice').textContent = choix
+            let random_index = computerchoice();
+            if ((computer[random_index] === '✊' && choix === '✌️') || (computer[random_index] === '✋' && choix === '✊') || (computer[random_index] === '✌️' && choix === '✋')) {
+                document.getElementById('score').textContent = `vous avez perdu`
+            } else if ((computer[random_index] === '✊' && choix === '✋') || (computer[random_index] === '✋' && choix === '✌️') || (computer[random_index] === '✌️' && choix === '✊')) {
+                document.getElementById('score').textContent = `vous avez gagné`
+            } else if ((computer[random_index] === choix)) {
+                document.getElementById('score').textContent = `match nul`
+            }
+        }
+
+
     </script>
 
 </body>
