@@ -1,0 +1,32 @@
+
+body {
+    background-color: #10513c;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#images {
+    display: flex;
+    justify-content: space-between;
+    width: 98vw;
+}
+
+img {
+    object-fit: cover;
+    width: 100px;
+    height: 200px;
+    border-radius: 8px;
+    border: white 3px solid;
+}
+
+.active {
+    object-fit: cover;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 8px;
+    border: white 3px solid;
+}

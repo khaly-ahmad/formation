@@ -46,9 +46,13 @@ button:active{
     font-family: arial;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
-    --orange:#e48613;
-    --blanc:white;
+    --orange: #e48613;
+    --blanc: white;
 }
 
 header {
@@ -56,7 +60,6 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     height: 56.25vw;
-    padding: 0 20px;
 }
 
 nav {
@@ -64,7 +67,9 @@ nav {
     justify-content: space-between;
     color: var(--orange);
     align-items: center;
+    padding: 10px;
     gap: 10px;
+    background-color: black;
 }
 
 h1 {
@@ -72,7 +77,7 @@ h1 {
 }
 
 header nav .menu {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
@@ -90,8 +95,7 @@ header nav .menu a:hover {
     text-decoration: underline;
 }
 
-header nav .menu a:active,
-header nav .menu a:first-child {
+header nav .menu a:active{
     text-decoration: none;
     background-color: var(--orange);
     border-radius: 5px;
@@ -101,19 +105,20 @@ main h2 {
     text-align: center;
     padding: 10px;
 }
+
 main {
     font-size: large;
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 20px;
-    margin: 10px 20px ;
+    margin: 10px 20px;
 }
 
 section .menu-image {
     border: var(--orange) 3px solid;
     padding: 20px 16px;
-    box-shadow:  5px 5px 5px #2b2b2b80;
+    box-shadow: 5px 5px 5px #2b2b2b80;
     border-radius: 5px;
     flex: .5 0 220px;
     max-width: 270px;
@@ -137,11 +142,12 @@ section {
 section .menu-image span {
     font-size: x-large;
     text-align: center;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
 p {
     text-align: center;
+    font-size: larger;
     margin: 20px;
 }
 
@@ -171,10 +177,11 @@ input[type="text"],
 textarea,
 button {
     width: 90%;
-    font-size: large;
+    font-size: larger;
     margin: 15px;
     padding-left: 10px;
 }
+
 input[type="password"],
 input[type="text"],
 input[type="email"] {
@@ -190,7 +197,7 @@ textarea {
 
 button {
     padding: 10px;
-    background-color:var(--orange);
+    background-color: var(--orange);
     border: none;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
     border-radius: 50vh;
@@ -205,6 +212,7 @@ button {
     overflow: hidden;
     background-color: var(--blanc);
     border-radius: 20px;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, .3);
     z-index: 9;
 }
 
@@ -215,9 +223,9 @@ form::before {
     left: 50%;
     translate: -50% -50%;
     width: 150%;
-    height:150%;
-    background-image: conic-gradient(transparent 5%, var(--orange));
-    animation: animation 3s linear ;
+    height: 150%;
+    background-image: conic-gradient(transparent 50%, var(--orange));
+    animation: animation 3s linear infinite;
     z-index: -2;
 }
 
@@ -238,13 +246,17 @@ label span {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-@media (max-width:700px) {
+@media (max-width:620px) {
     header nav .menu {
         width: 63%;
-    }  
+    }
+    header nav .menu a {
+        font-size: large;
+    }
 }

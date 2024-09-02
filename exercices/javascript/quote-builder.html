@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quote-builder.css">
+    <title>generateur de citations</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="content">
+            <h1>quote builder</h1>
+            <div id="quote">
+                <p>
+                    << qu'est-ce qui est jaune et qui attend>>
+                </p>
+            </div>
+            <button class="builder">build</button>
+        </div>
+    </div>
+    <script>
+        const quote = [
+            "Le bonheur est parfois caché dans l'inconnu.",
+            "Rêve grand, travail dur, reste humble.",
+            "le silence est parfois la reponse le plus puissante.",
+            "l'echec est le debut de toute réussite."
+        ]
+        var index = 0;
+        document.querySelector(".builder").addEventListener("click", () => {
+
+            console.log()
+            document.getElementById("quote").innerHTML = `<p> " ${quote[index]} "<p>`
+            if (index === quote.length - 1) {
+                index = 0;
+            }
+            else if (index < quote.length) {
+                index++;
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather.css">
+    <title>metéo</title>
+</head>
+
+<body>
+    <div id="weather">
+        <div id="result">
+
+        </div>
+        <input id="search-bar" type="text" placeholder="lieu">
+        <button id="search-btn" type="submit">search</button>
+    </div>
+
+
+
+    <script>
+        const search_btn = document.getElementById("search-btn");
+        search_btn.addEventListener("click", () => {
+            const cityName = document.getElementById("search-bar").value;
+            const apiKey = '7e3f5667ae5ec97a3d6a8d3dedcdc329';
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=fr`
+            fetch(apiUrl)
+                .then(response => {
+                    console.log(response);
+                    return response.json()
+                })
+                .then(data => {
+                    if (data.cod === "404") {
+                        document.getElementById("result").innerHTML = `<p>ville non trouver essayer a nouveau</p>`
+                    } else {
+
+                        const temp = data.main.temp;
+                        const weather = data.weather[0].description;
+                        const icon = data.weather[0].icon;
+                        document.getElementById("result").innerHTML = `<p> <img src="http://openweathermap.org/img/wn/${icon}.png" alt="${weather}"> ${weather}</p>
+                            <p> Temperature : ${temp}°C</p>`
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("result").innerHTML = `<p>ERREUR : ${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+
+</html>
