@@ -11,7 +11,7 @@
 <body>
     <div id="weather">
         <div id="result">
-
+            <h1> Météo</h1>
         </div>
         <input id="search-bar" type="text" placeholder="lieu">
         <button id="search-btn" type="submit">search</button>
@@ -32,14 +32,17 @@
                 })
                 .then(data => {
                     if (data.cod === "404") {
-                        document.getElementById("result").innerHTML = `<p>ville non trouver essayer a nouveau</p>`
+                        document.getElementById("result").innerHTML = `        <p>ville non trouver essayer a nouveau</p>`
                     } else {
 
                         const temp = data.main.temp;
                         const weather = data.weather[0].description;
                         const icon = data.weather[0].icon;
-                        document.getElementById("result").innerHTML = `<p> <img src="http://openweathermap.org/img/wn/${icon}.png" alt="${weather}"> ${weather}</p>
-                            <p> Temperature : ${temp}°C</p>`
+                        document.getElementById("result").innerHTML = `
+                        <h1>Météo</h1>
+                        <p> <img src="http://openweathermap.org/img/wn/${icon}.png" alt="${weather}"></p>
+                        <p> ${weather}</p>
+                        <p> Temperature : ${temp}°C</p>`
                     }
                 })
                 .catch(error => {

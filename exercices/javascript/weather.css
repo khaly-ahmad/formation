@@ -17,8 +17,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 300px;
-    height: 300px;
+    width: 300px;/*
+    background-image: url(../../images/nature.jpg);
+    background-position: center;
+    background-size: cover;*/
     background: linear-gradient(to bottom, #45c5f7, #eff3f8);
     border-radius: 20px;
     padding: 10px;
@@ -45,7 +47,7 @@ body {
     z-index: -2;
     padding: 5px;
     border-radius: 20px;
-    animation: rotate 3s linear infinite;
+    animation: rotate 3s linear ;
 }
 
 #weather::before {
@@ -64,7 +66,6 @@ body {
 }
 
 #result {
-    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -78,6 +79,16 @@ img {
 p {
     font-size: 26px;
     text-align: justify;
+    font-weight: 800;
+}
+
+h1 {
+    background-image: url(../../images/clouds-4.jpg);
+    color: transparent;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-size: cover;
+    font-size: 50px;
 }
 
 input {
@@ -86,6 +97,7 @@ input {
     border-bottom: #0e4b4b 3px solid;
     background-color: transparent;
     font-size: x-large;
+    font-weight: 800;
     padding-left: 8px;
     color: black;
 }
