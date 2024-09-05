@@ -17,10 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 300px;/*
-    background-image: url(../../images/nature.jpg);
-    background-position: center;
-    background-size: cover;*/
+    width: 300px;
     background: linear-gradient(to bottom, #45c5f7, #eff3f8);
     border-radius: 20px;
     padding: 10px;
@@ -86,7 +83,7 @@ h1 {
     background-image: url(../../images/clouds-4.jpg);
     color: transparent;
     background-position: center;
-    -webkit-background-clip: text;
+    background-clip: text;
     background-size: cover;
     font-size: 50px;
 }
@@ -98,6 +95,7 @@ input {
     background-color: transparent;
     font-size: x-large;
     font-weight: 800;
+    outline:none;
     padding-left: 8px;
     color: black;
 }
