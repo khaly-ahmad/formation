@@ -319,49 +319,6 @@ rejet.addEventListener("click", function () {
     document.getElementById("conteur").textContent = count
 })
 
-/*================================background-color===============================*/
-const background = document.getElementById("background");
-background.addEventListener("mouseover", function () {
-    background.style.backgroundColor = "red";
-    background.addEventListener("mouseout", function () {
-        background.style.backgroundColor = "gray";
-    })
-})
-
-/*==================================formulaire-validation========================*/
-const submit = document.getElementById("submit");
-submit.addEventListener("click", function () {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    if (name == "" || email == "") {
-        alert("inscription non valid");
-    } else {
-        alert("felicitation vous avez bien saisi le formulaire");
-    }
-})
-
-/*==================================add-text=====================================*/
-const add = document.getElementById("add");
-const add_Btn = document.getElementById("add_Btn");
-const remove_btn = document.getElementById("remove_btn");
-add_Btn.addEventListener("click", function () {
-    if (add.value != "") {
-        const li = document.createElement("li");
-        li.textContent = add.value;
-        document.getElementById("ul").append(li);
-        add.value = "";
-    }
-});
-
-remove_btn.addEventListener("click", function () {
-    let parent = document.getElementById("ul");
-    const n = parent.childElementCount;
-    if (n > 0) {
-        const lastchild = parent.children[n - 1];
-        parent.removeChild(lastchild)
-    }
-});
-
 /*==================================defilement-image=============================*/
 const images = ["../04.jpg", "../pic02.jpg", "../05.jpg", "../06.jpg", "../07.jpg", "../09.jpg", "../10.jpg"];
 let currentImage = 0;
@@ -370,9 +327,9 @@ function showImage(index) {
     let image = document.getElementById("image");
     image.innerHTML = ' <img src="' + images[index] + '" style="width: 250px;height: 300px;object-fit: cover;border-radius: 25px;border: 5px solid burlywood;">'
 }
-
-var galerie_boucle = setInterval(function () {/*
-    currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;*/
+/*
+var galerie_boucle = setInterval(function () {
+    currentImage = (currentImage === images.length - 1) ? 0 : currentImage + 1;
     if (currentImage < images.length) {
         showImage(currentImage)
         currentImage += 1
@@ -381,6 +338,7 @@ var galerie_boucle = setInterval(function () {/*
     }
     
 }, 2000);
+*/
 
 
 document.getElementById("previous").addEventListener("click", function () {
@@ -394,49 +352,6 @@ document.getElementById("next").addEventListener("click", function () {
 });
 showImage(currentImage);
 
-/*==================================affiche-option===============================*/
-document.getElementById("check").addEventListener("click", function () {
-    if (this.checked) {
-        document.getElementById("other-content").style.display = ""
-    } else {
-        document.getElementById("other-content").style.display = "none"
-    }
-})
-
-/*==================================calculette===================================*/
-function add_to_display(value) {
-    document.getElementById("display").value += value;
-}
-
-function calculate() {
-    let result = eval(document.getElementById("display").value)
-    document.getElementById("display").value = result
-}
-
-function clear_display() {
-    document.getElementById("display").value = "";
-}
-
-/*==================================password=====================================*/
-const container = document.getElementById("input");
-const password = document.getElementById("password");
-const h5 = document.querySelector("h5");
-
-function passwordState() {
-    var passwordValue = password.value;
-    var passwordLength = passwordValue.length
-    const spanContent = document.querySelector("h5 span");
-    if (passwordLength === 0) {
-        h5.style.display = "none"
-    } else if (passwordLength <= 4) {
-        spanContent.textContent = "week";
-    } else if (passwordLength > 4 && passwordLength <= 8) {
-        spanContent.textContent = "medium";
-    } else if (passwordLength > 8) {
-        spanContent.textContent = "strong";
-    }
-}
-password.addEventListener("input", passwordState);
 
 /*==================================hour=======================================*/
 function showHours() {
@@ -464,79 +379,3 @@ img.forEach(function (image) {
         }
     })
 });
-
-/*==================================text-animation===============================*/
-const text = (document.getElementById('text-animation'));
-const array_text = text.textContent.split(" ");
-let index_array = 0;
-text.textContent = "";
-
-function arrayFunction() {
-    if (index_array < array_text.length) {
-        text.textContent += " " + array_text[index_array];
-        index_array++
-    }
-    else {
-        clearInterval(boucle)
-        console.log(boucle);
-    }
-}
-var boucle = setInterval(arrayFunction, 100)
-
-/*==================================game=======================================*/
-
-let you = document.getElementById('yourchoice');
-let computer = ['✊', '✋', '✌️'];
-function computerchoice() {
-    let random_index = Math.floor(Math.random() * 3);
-    document.getElementById("computerchoice").textContent = computer[random_index];
-    return random_index;
-}
-
-function yourchoice(choix) {
-    document.getElementById('yourchoice').textContent = choix
-    let random_index = computerchoice();
-    if ((computer[random_index] === '✊' && choix === '✌️') || (computer[random_index] === '✋' && choix === '✊') || (computer[random_index] === '✌️' && choix === '✋')) {
-        document.getElementById('score').textContent = `vous avez perdu`
-    } else if ((computer[random_index] === '✊' && choix === '✋') || (computer[random_index] === '✋' && choix === '✌️') || (computer[random_index] === '✌️' && choix === '✊')) {
-        document.getElementById('score').textContent = `vous avez gagné`
-    } else if ((computer[random_index] === choix)) {
-        document.getElementById('score').textContent = `match nul`
-    }
-}
-
-/*==================================timer=======================================*/
-let timer;
-let second = 0;
-let running = false;
-
-const affichage = document.getElementById('affichage');
-
-function startTimer() {
-    if (!running) {
-        running = true;
-        timer = setInterval(updateTime, 1000);
-    }
-}
-
-function stopTimer() {
-    running = false;
-    clearInterval(timer);
-}
-
-function resetTimer() {
-    stopTimer();
-    second = 0;
-    affichage.innerHTML = `00:00:00`
-}
-
-
-function updateTime() {
-    second++
-    let heur = Math.floor(second / 3600);
-    let minute = Math.floor((second % 3600) / 60);
-    let secs = second % 60;
-
-    affichage.innerHTML = (heur < 10 ? "0" : "") + heur + ":" + (minute < 10 ? "0" : "") + minute + ":" + (secs < 10 ? "0" : "") + secs;
-}
-

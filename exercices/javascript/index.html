@@ -62,18 +62,9 @@
         <p>condition d'utilisation</p>
         <input type="checkbox" id="checkbox">
     </form>-->
-    <button id="btn">cliquez-moi</button>
-    <ul id="list-item"></ul>
-    <hr>
-    <div id="background" style="width: 200px; height:200px; background-color: bisque; border-radius: 50%; "></div>
 
-    <hr>
-    <input type="text" name="" id="add">
-    <button id="add_Btn">add</button>
-    <button id="remove_btn">remove</button>
-    <ul id="ul">
+<!---------------------compteur de clique-------------------------->
 
-    </ul>
     <hr>
     <div id="slider">
         <button id="previous">previous</button>
@@ -87,132 +78,8 @@
         </div>
         <button id="next">next</button>
     </div>
-    <hr>
-    <form action="#">
-        <input id="name" type="text" placeholder="name">
-        <input id="email" type="email" placeholder="email">
-        <button id="submit" type="submit"> soumettre</button>
-    </form>
-
-    <div id="menu_principal" style="
-        width: 450px;
-        border: 5px solid burlywood;
-        text-align: center;
-        font-size: x-large;
-        ">
-        <label>pour afficher plus de contenu cocher ici <input type="checkbox" id="check"></label>
-        <ul id="other-content" style="display: none;">
-            <li>il n'y a rien a voir dans ce contenu</li>
-            <li>il n'y a rien a voir dans ce contenu</li>
-            <li>il n'y a rien a voir dans ce contenu</li>
-            <li>il n'y a rien a voir dans ce contenu</li>
-            <li>il n'y a rien a voir dans ce contenu</li>
-        </ul>
-    </div>
 
 
-    <div id="calculatrice">
-        <input type="text" id="display">
-        <br>
-        <div class="key">
-            <button onclick="add_to_display('1')">1</button>
-            <button onclick="add_to_display('2')">2</button>
-            <button onclick="add_to_display('3')">3</button>
-            <button onclick="add_to_display('+')">+</button>
-        </div>
-        <br>
-        <div class="key">
-            <button onclick="add_to_display('4')">4</button>
-            <button onclick="add_to_display('5')">5</button>
-            <button onclick="add_to_display('6')">6</button>
-            <button onclick="add_to_display('-')">-</button>
-        </div>
-        <br>
-        <div class="key">
-            <button onclick="add_to_display('7')">7</button>
-            <button onclick="add_to_display('8')">8</button>
-            <button onclick="add_to_display('9')">9</button>
-            <button onclick="add_to_display('*')">X</button>
-        </div>
-        <br>
-        <div class="key">
-            <button onclick="clear_display()">C</button>
-            <button onclick="add_to_display('0')">0</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="add_to_display('/')">/</button>
-        </div>
-    </div>
-
-    <div id="input">
-        <input type="password" id="password">
-        <h5><span></span> password</h5>
-    </div>
-
-    <hr>
-    <h1>heure actuelle</h1>
-    <div id="clock"></div>
-    <div id="galerie">
-        <img src="../04.jpg">
-        <img src="../05.jpg">
-        <img src="../06.jpg">
-        <img src="../07.jpg">
-        <img src="../09.jpg">
-        <img src="../10.jpg">
-        <img src="../04.jpg">
-    </div>
-
-
-    <div id="text-container">
-        <p id="text-animation">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolore magni eveniet minus accusamus debitis!
-            Vitae placeat aliquam quos velit numquam mollitia, totam ducimus ratione consequuntur quam, est, saepe
-            veniam nemo quas veritatis asperiores iste? Doloremque similique, dignissimos distinctio voluptate
-            voluptates, recusandae vero quas perspiciatis tempora corrupti velit perferendis quae rem placeat nemo,
-            laboriosam aliquam consequatur optio quidem harum. Cum facere, eos quasi aperiam, explicabo sequi earum
-            obcaecati corrupti unde eligendi voluptatem in at quidem. Temporibus at mollitia, nesciunt nostrum adipisci
-            architecto eos quos in velit culpa. Quasi quisquam ratione recusandae distinctio odit quia eligendi voluptas
-            dolorem. Harum repellendus quae esse id inventore sed culpa quo, voluptatem corrupti. Sed nostrum
-            cupiditate, eius inventore numquam placeat. Esse tempore adipisci exercitationem nemo provident rerum quia?
-            Eos, facilis illo? Voluptatum quo recusandae eligendi modi reiciendis corrupti sapiente adipisci harum
-            provident dolorem voluptatibus ea quisquam a quam earum, iste non aspernatur aut ratione reprehenderit?
-            Aspernatur sequi nostrum sapiente temporibus adipisci, amet blanditiis numquam saepe commodi dolore. Quia
-            odio error dicta non ipsum illum molestiae quae debitis ipsam distinctio, iure consequatur facilis corrupti
-            accusamus voluptas iste voluptates nemo magni, maiores quasi soluta illo. Perferendis consequatur accusamus
-            dignissimos voluptatibus recusandae facere tenetur inventore soluta libero non!
-        </p>
-    </div>
-
-    <section>
-        <div id="jeux">
-            <h1>pierre feuille ciseau </h1>
-            <div id="player">
-                <h2>you</h2>
-                <h2>computer</h2>
-            </div>
-            <div id="result">
-                <div id="yourchoice"></div>
-                <div id="computerchoice"></div>
-            </div>
-            <h2 id="score"></h2>
-            <div id="choices">
-                <button onclick="yourchoice('✊')">✊</button>
-                <button onclick="yourchoice('✋')">✋</button>
-                <button onclick="yourchoice('✌️')">✌️</button>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div id="chrono">
-            <h1 id="affichage">00:00:00</h1>
-            <div>
-                <button onclick="startTimer()">start</button>
-                <button onclick="stopTimer()">stop</button>
-                <button onclick="resetTimer()">reset</button>
-            </div>
-        </div>
-    </section>
-    <script src="index.js"></script>
 
 </body>
 
