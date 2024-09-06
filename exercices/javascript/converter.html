@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="converter.css">
+    <title>devise</title>
+</head>
+
+<body>
+
+    <div id="devise">
+        <h1> currency converter</h1>
+        <span>amount</span>
+        <input type="phone" id="amount" placeholder="enter amount">
+        <span>from</span>
+        <select id="fromCurrency" value="5">
+            <option disabled selected>
+                Starting currency
+            </option>
+        </select>
+        <span> to</span>
+        <select id="toCurrency">
+            <option disabled selected>
+                Target currency
+            </option>
+        </select>
+        <button id="convert" onclick="convert()">
+            convert
+        </button>
+
+    </div>
+    <script src="converter.js" refer></script>
+</body>
+
+</html>
