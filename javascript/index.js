@@ -320,7 +320,7 @@ rejet.addEventListener("click", function () {
 })
 
 /*==================================defilement-image=============================*/
-const images = ["../04.jpg", "../pic02.jpg", "../05.jpg", "../06.jpg", "../07.jpg", "../09.jpg", "../10.jpg"];
+const images = ["../images/04.jpg", "../images/pic02.jpg", "../images/05.jpg", "../images/06.jpg", "../images/07.jpg", "../images/09.jpg", "../images/10.jpg"];
 let currentImage = 0;
 
 function showImage(index) {

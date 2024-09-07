@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculatrice</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(#23615c, #501165);
+        }
+
         #calculatrice {
-    border: 5px solid burlywood;
-    width: 239px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 30%;
-    padding: 20px 10px;
-    border-radius: 25px;
-    background-color: #0f0c0c;
-}
+            border: 5px solid burlywood;
+            width: 239px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 30%;
+            padding: 20px 10px;
+            border-radius: 25px;
+            background-color: #0f0c0c;
+        }
 
-#display {
-    width: 100%;
-    height: 50px;
-    font-size: 25px;
-    color: white;
-    text-align: end;
-    background-color: #332e2e;
-}
+        #display {
+            width: 96%;
+            height: 50px;
+            font-size: 25px;
+            color: white;
+            text-align: end;
+            background-color: #332e2e;
+            padding-right: 10px;
+            outline: none;
+        }
 
-.key {
-    width: 100%;
-    margin: -5px 0;
-    display: flex;
-    justify-content: space-evenly;
-}
+        .key {
+            width: 100%;
+            margin: -5px 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
 
-.key button {
-    width: 60px;
-    height: 35px;
-    font-size: 25px;
-    border-radius: 15px;
-    color: white;
-    background-color: #332e2e;
-    border: 2px gray solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .key button {
+            width: 60px;
+            height: 35px;
+            font-size: 25px;
+            border-radius: 15px;
+            color: white;
+            background-color: #332e2e;
+            border: 2px gray solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
+
 <body>
-    <!-------------------------calculette----------------------------->
     <div id="calculatrice">
-        <input type="text" id="display">
+        <input type="text" id="display" disabled>
         <br>
         <div class="key">
             <button onclick="add_to_display('1')">1</button>
@@ -80,7 +92,8 @@
             <button onclick="add_to_display('/')">/</button>
         </div>
     </div>
-    
+
     <script src="calulette.js"></script>
 </body>
+
 </html>

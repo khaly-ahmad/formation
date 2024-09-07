@@ -6,7 +6,7 @@
 }
 
 section {
-    background-image: url("photograph.webp");
+    background-image: url("../images/photograph.webp");
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 20px;
