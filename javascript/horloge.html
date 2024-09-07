@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="horloge.css">
+    <title> mon horloge</title>
+</head>
+
+<body>
+    <div class="analogique">
+        <div class="clock">
+            <span class="auteur">khaly</span>
+            <div class="number" style="--i:1;">1</div>
+            <div class="number" style="--i:2;">2</div>
+            <div class="number" style="--i:3;">3</div>
+            <div class="number" style="--i:4;">4</div>
+            <div class="number" style="--i:5;">5</div>
+            <div class="number" style="--i:6;">6</div>
+            <div class="number" style="--i:7;">7</div>
+            <div class="number" style="--i:8;">8</div>
+            <div class="number" style="--i:9;">9</div>
+            <div class="number" style="--i:10;">10</div>
+            <div class="number" style="--i:11;">11</div>
+            <div class="number" style="--i:12;">12</div>
+            <div class="hour"></div>
+            <div class="min"></div>
+            <div class="second"></div>
+            <div class="point"></div>
+        </div>
+        <p> Pour une horloge Numerique cliquez <span onclick="changeToNumerique()" class="change"> ici </span>
+         </p>
+
+    </div>
+    <div class="numerique">
+        <div class="numeClock">
+            <h1>heure actuelle</h1>
+            <di class="heure"></di>
+            <p> Pour une horloge Analogique cliquez <span class="change" onclick="changeToAnalogique()"> ici </span>
+            </p>
+        </div>
+    </div>
+    <script src="horloge.js"></script>
+</body>
+
+</html>

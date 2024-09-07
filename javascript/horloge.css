@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: roboto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#662ea6, #d51323);
+}
+
+.analogique {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    width: 280px;
+    height: 280px;
+    border: #ffffff 3px solid;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+}
+
+.auteur {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #9f9e9e;
+    translate: 0 -50px;
+}
+
+.number {
+    position: absolute;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(calc(30deg*var(--i))) translateY(-120px) rotate(calc(-30deg * var(--i)));
+}
+
+.second {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 4px transparent solid;
+    border-right: 4px transparent solid;
+    border-bottom: 120px red solid;
+    border-radius: 55%;
+    translate: 0 -50px;
+    transform-origin: 4px 110px;
+}
+
+.min {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px transparent solid;
+    border-right: 6px transparent solid;
+    border-bottom: 110px #fbf6f6 solid;
+    border-radius: 55%;
+    translate: 0 -47.5px;
+    transform-origin: 6px 100px;
+}
+
+.hour {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 7px transparent solid;
+    border-right: 7px transparent solid;
+    border-bottom: 90px #1c1b1b solid;
+    border-radius: 55%;
+    translate: 0 -40px;
+    transform-origin: 7px 85px;
+}
+
+.point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    translate: 0 ;
+    background-color: #dfaf70;
+    border: 2px solid black;
+}
+
+p {
+    color: #fbf6f6;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+p span {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #03036c;
+    position: relative;
+}
+
+p span::after {
+    content: '';
+    background-color: blue;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 1s ease-in-out;
+}
+
+p:hover span::after {
+    width: 100%;
+}
+
+.numerique {
+    display: none;
+}
+
+.numeClock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.numeClock h1 {
+    color: #fbf6f6;
+    text-transform: capitalize;
+    font-size: 50px;
+    font-family: Roboto;
+}
+
+.numeClock .heure {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fbf6f6;
+}
