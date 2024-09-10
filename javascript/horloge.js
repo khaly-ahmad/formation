@@ -22,7 +22,7 @@ function aiguilMove() {
     minutes = (minutes < 10) ? '0' + minutes : minutes;
     seconds = (seconds < 10) ? '0' + seconds : seconds;
     const updateHours = `${hours}:${minutes}:${seconds}`
-    document.querySelector('.heure').textContent = `${hours} : ${minutes} : ${seconds}`;
+    document.querySelector('.heure').textContent = `${hours}:${minutes}:${seconds}`;
 
 }
 setInterval(aiguilMove, 1000);
