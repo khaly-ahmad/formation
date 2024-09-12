@@ -353,21 +353,6 @@ document.getElementById("next").addEventListener("click", function () {
 showImage(currentImage);
 
 
-/*==================================hour=======================================*/
-function showHours() {
-    const now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    minutes = (minutes < 10) ? '0' + minutes : minutes;
-    seconds = (seconds < 10) ? '0' + seconds : seconds;
-    const updateHours = `${hours}:${minutes}:${seconds}`
-
-    document.getElementById("clock").textContent = updateHours;
-    document.getElementById("clock").style.fontSize = "60px"
-}
-setInterval(showHours, 1000);
-
 /*==================================galerie-images===============================*/
 const img = Array.from(document.querySelectorAll("#galerie img"));
 img.forEach(function (image) {
@@ -379,3 +364,88 @@ img.forEach(function (image) {
         }
     })
 });
+
+const myArray = [43, 56, 10, 100, 4];
+console.log(myArray.reduce((total, nombre) => total + nombre, 0));
+console.log(myArray.filter((nbr) => nbr % 2 === 0));
+let acc = myArray[0];
+for (let i = 0; i < myArray.length; i++) {
+    acc = (acc < myArray[i]) ? myArray[i] : acc
+}
+console.log(acc)
+const word = "javascript";
+console.log(word.split("").reverse().join('').toUpperCase());
+const librery = {
+    titre: "les miserables",
+    auteur: "victor hugo",
+    annee: 1862,
+    genre: "roman"
+}
+console.log(Object.values(librery));
+
+let utilisateurs = [
+    { nom: "alpha", age: 15, email: "alpha@gmail.com" },
+    { nom: "aliace", age: 32, email: "aliace@gmail.com" },
+    { nom: "ali", age: 29, email: "ali@gmail.com" },
+    { nom: "khaly", age: 20, email: "khaly@gmail.com" },
+    { nom: "alice", age: 19, email: "alice@gmail.com" }
+]
+
+utilisateurs.forEach((utilisateur) => {
+    console.log(utilisateur.nom)
+})
+
+for (let utilisateur of utilisateurs) {
+    if (utilisateur.age > 18) {
+        console.log(utilisateur)
+    }
+    if (utilisateur.nom === "alice") {
+        console.log(utilisateur.email)
+    }
+}
+
+let stocks = [
+    { name: "ordinateurs", prix: 2, quantity: 5 },
+    { name: "airpods", prix: 8, quantity: 10 },
+    { name: "chargeurs", prix: 4, quantity: 7 },
+    { name: "claviers", prix: 1, quantity: 15 },
+    { name: "phones", prix: 5, quantity: 23 }
+]
+
+function addProduit(nom, prx, qtt) {
+    const newProduct = { name: nom, prix: prx, quantity: qtt }
+    stocks.push(newProduct);
+}
+let newProduct = addProduit("cahiers", 1, 20);
+console.log(stocks);
+
+let prixAchat = [];
+
+function achatPrduit(nom, qtt) {
+    let indexProduit = stocks.findIndex(item => item.name === nom);
+    let produit = stocks[indexProduit];
+    let produitAchete = produit.prix;
+    if (indexProduit != -1) {
+        if (produit.quantity > qtt) {
+            prixAchat.push(produitAchete);
+            produit.quantity -= qtt;
+        } else if (produit.quantity === qtt) {
+            prixAchat.push(produitAchete);
+            stocks.splice(indexProduit, 1)
+        }
+        else {
+            console.log('il ne nous reste que' + ` ${produit.quantity} ${produit.name} en stock`);
+        }
+    } else {
+        console.log('product not find')
+    }
+}
+achatPrduit("claviers", 2);
+achatPrduit("cahiers", 15);
+achatPrduit("phones", 6);
+achatPrduit("ordinateurs", 5);
+console.log(prixAchat);
+
+console.log("vous nous devez "+prixAchat.reduce((prixTotal,prix)=>{
+    return prixTotal + prix;
+})+"€")
