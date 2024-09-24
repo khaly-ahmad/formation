@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="to-do.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>my to do list in vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-model="inputName" placeholder="enter your to-do name">
+            <button type="submit" @click="addToDo"> add </button>
+        </div>
+        <ul>
+            <li v-for="(item,index) in sortedItems" :key="index" :class="(item.important) ? 'important' : ''" @dblclick="toggleImportant(item)">
+                <span :class="(item.completed) ? 'completed' : '' " @click="toggleCompleted(item)">{{item.name}}</span>
+                <button @click="remove(index)">remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="to-do.js"></script>
+</body>
+
+</html>

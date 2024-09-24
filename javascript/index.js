@@ -446,6 +446,44 @@ achatPrduit("phones", 6);
 achatPrduit("ordinateurs", 5);
 console.log(prixAchat);
 
-console.log("vous nous devez "+prixAchat.reduce((prixTotal,prix)=>{
+console.log("vous nous devez " + prixAchat.reduce((prixTotal, prix) => {
     return prixTotal + prix;
-})+"€")
+}) + "€")
+
+const canva = document.getElementById('myCanvas');
+const ctx = canva.getContext('2d');
+
+const radius = 15;
+let mouseX=80;
+let mouseY=80;
+canva.width=window.innerWidth
+canva.height=window.innerHeight
+
+canva.addEventListener('mousemove',(event)=>{
+    const rec=canva.getBoundingClientRect();
+    mouseX= event.clientX-rec.left
+    mouseY= event.clientY-rec.top
+    drawCircle()
+})
+function drawCircle() {
+    ctx.clearRect(0, 0, canva.width, canva.height);
+    ctx.beginPath();
+    ctx.fillStyle = "#add3f5";
+    ctx.arc(mouseX, mouseY, radius, 0, Math.PI * 2)
+    ctx.fill();
+    ctx.closePath();
+/*
+    x+=dx
+    y+=dy
+    if (x+radius>canva.width||x-radius<0){
+        dx=-dx
+    }
+    if (y+radius>canva.height||y-radius<0){
+        dy=-dy
+    }
+
+
+    requestAnimationFrame(drawCircle); */
+}
+drawCircle();
+

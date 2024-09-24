@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
-    
 </head>
 
 <body>
-
+<!-- 
     <button id="ajout">bouton d'ajout</button>
     <button id="rejet">rejet</button>
     <p>vous avez cliqué <span id="conteur"> 0 </span> fois</p>
     <hr>
 
 
-    <!--
+    
     <ul id="menu">
         <li>accueil</li>
         <li>about</li>
@@ -61,9 +60,8 @@
     <form action="#">
         <p>condition d'utilisation</p>
         <input type="checkbox" id="checkbox">
-    </form>-->
+    </form>
 
-<!---------------------compteur de clique-------------------------->
 
     <hr>
     <div id="slider">
@@ -79,7 +77,27 @@
         <button id="next">next</button>
     </div>
 
+<canvas id="myCanvas" height="500" width="500" 
+style="
+border: 2px solid burlywood;"
+></canvas>-->
+<div id="app">
+    <p>ceci est le premier mots en vue js quz-e j'ai pu ecrire aujourd'hui</p>
+    <input type="text" v-on placeholder="enter ypur name">
+    <p><strong>NOM:</strong></p>
+</div>
+
 <script src="index.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const app= Vue.createApp({
+        data(){
+            return {
+                inputName:''
+            }
+        }
+    }).mount('#app')
+</script>
 
 </body>
 

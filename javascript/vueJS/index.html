@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formation vue js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+        h1{
+            text-transform: uppercase;
+            font-family: Arial, Helvetica;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>hello this is my first vue js script </h1>
+    <div id="app">
+        <input placeholder="enter your name" v-model="name">
+        <p> bonjour, {{ name }}</p>
+
+        <hr>
+
+        <div>
+            <h2 @click="change">information de connexion</h2>
+            <p v-if="showState"> congratilation you're sign in</p>
+            <p v-else> veuillez vous connecter</p>
+        </div>
+
+        <hr>
+
+        <div>
+            <input type="text" placeholder="enter your to-do name" v-model="itemName">
+            <button @click="addItem">add</button>
+            <ul>
+                <li v-for="(item,index) in sortedItems" :key="index" @dblclick="remove(index)" :style="{textDecoration: item.completed ? 'line-through' : 'none'}" @click="toggleCompleted(item)">
+                    {{item.nom}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
