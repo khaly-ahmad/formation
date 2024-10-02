@@ -62,17 +62,16 @@ function createObserver(selector, className) {
 
 createObserver('.hidden', 'show');
 createObserver('.imgHidden', 'showImage');
-// createObserver('.item', 'showItem')
 
 document.addEventListener('scroll', () => {
     const items = document.querySelectorAll('.item');
     items.forEach((item)=>{
         let itemPosition = item.getBoundingClientRect().top;
         if(itemPosition<screenPosition){
-            item.classList.add('showItem')
+            item.classList.add('showItem');
         }
         else {
-            item.classList.remove('showItem')
+            item.classList.remove('showItem');
         }
     })
 })

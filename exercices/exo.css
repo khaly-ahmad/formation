@@ -1,32 +1,40 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
+
 body {
-    background-color: black;
-    background-image: url(../images/hiver.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    background-color: #3e3223;
 }
 
-div {
-    background-color: #c9c4c4;
-    opacity: .5;
-    border-radius: 50%;
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.boule {
-    position: absolute;
-    left: 50%;
-    animation-name: chute;
-    animation-timing-function: linear;
+.content {
+    width: 400px;
+    height: 400px;
+    background-color: #3c056f;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .8),
+              -5px -5px 5px rgba(0, 0, 0, .8);
 }
 
-@keyframes chute {
-    to {
-        transform: translateY(100vh);
-    }
+.item {
+    opacity: 0;
+    transform-origin: left bottom;
+    transform: translateX(-100px) rotate(-80deg);
+    transition: all 1s;
+}
+
+.item1{
+    transform: translateX(0) rotate(0);
+    opacity: 1;
 }
