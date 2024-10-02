@@ -1,106 +1,138 @@
-body{
-    background-color: antiquewhite;
-    display: flex ;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif ;
-}
-.phone{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 360px;
-    height: 720px;
-    border-radius: 25px;
-    background-color: black;
-    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.5);
-}
-.app{
-    background-color: rgb(191, 238, 223);
-    width: 335px;
-    height: 620px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: #171d23;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
-    overflow: auto;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+}
+
+.essai {
+    width: 100vw;
+    height: 50px;
+    background-color: #32302e;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    z-index: 34;
+}
+
+.essai a {
+    color: white;
+}
+
 header {
-    
-    display: grid;
-    grid-template-columns:66% 34%;
-    align-items: center;
-    border-bottom: .5px solid #404142;
-    height: 60px;
-    
+    width: 100vw;
+    height: 56vw;
+    background-image: url(../images/biologie.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-.name{
-    margin-left: 10px;
-    margin-right: 100px;
+
+header h1 {
+    display: inline-block;
+    padding: 100px 80px;
+    font-size: 45px;
+    color: #f6f8f7;
 }
-.icons{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+#span {
+    color: #fba93d;
 }
-i{
-    font-size: 25px;
-}
-.b1{
-    margin-left: 15px;
-    width: 40px;
-}
-.b2{width: 60px;}
-.b3{width: 80px;}
-.chats{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    
-}
-.detail{
-    line-height: 5px;
-}
-.bxs-user-circle{
-    margin-left: 5px;
-    font-size: 60px;
-    color: #c8c8f1;
-}
-p{font-size: 15px;}
-.number{
-    background-color: rgb(8, 138, 43);
-    font-size: 12px;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    left: 100px;
-    bottom: -14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: black;
-}
-footer{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+
+main h1 {
     text-align: center;
-    padding-top: 5px;
-    height:60px;
-    background-color: #171d23;
-    border-top: .5px solid #404142;
-    position: absolute;
-    right: 0px;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
+    font-size: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
-h4{
-    margin-top: 0;
+
+.hidden {
+    opacity: 0;
+    transform: translateX(-10%);
+    transition: all 2s;
+    color: #fba93d;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+    color: white;
+}
+
+main p {
+    text-align: justify;
+    padding: 0 10px;
+    opacity: 0;
+    transition: opacity 1s linear,
+        transform 1s linear;
+    transform: translateY(30px);
+}
+
+p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.container img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 5px -5px 5px rgba(0, 0, 0, .5),
+        -5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.imgHidden {
+    opacity: .5;
+    transition: all 2s;
+    transform: rotateY(90deg);
+}
+
+.showImage {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 200px;
+    width: 95%;
+    background-color: #32302e;
+    border-radius: 10px;
+    margin: 20px 2.5%;
+}
+
+.item {
+    width: 15%;
+    height: 70%;
+    border-radius: 10px;
+    transition: all var(--i);
+    transition-delay: var(--i);
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.showItem {
+    opacity: 1;
+    transform: translate(0) rotate(0deg);
 }
