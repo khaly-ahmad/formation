@@ -38,3 +38,23 @@ body {
     transform: translateX(0) rotate(0);
     opacity: 1;
 }
+
+.cursor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px greenyellow solid;
+    pointer-events: none;
+}
+
+.cursor::after{
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: -6px;
+    left: -7px;
+    border-radius: 50%;
+    background-color: greenyellow;
+}
