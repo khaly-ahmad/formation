@@ -1,29 +1,94 @@
-const fs = require('fs');
-const path = require('path');
-const http = require('http')
-const server = http.createServer((req, res) => {
-    if (req.url === '/' && req.method === 'GET') {
-        res.writeHead(200, { 'content-Type': 'text/html; charset = utf-8' });
-        fs.readFile(path.join(__dirname, 'index.html'), 'utf-8', (err, data) => {
-            if (err) throw err;
-            res.end(data);
-        });
-    } else if (req.url === '/submit' && req.method === 'POST') {
-        let body = '';
-        req.on('data', chunk => {
-            body += chunk.toString();
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const Blog = require('./models/blog')
+
+//register view engine
+app.set('view engine', 'ejs');
+
+// connect to mongodb 
+const dbURI = `mongodb+srv://khalyAmad:test-admin-12345@nodeformation.wrvx5.mongodb.net/node-course?retryWrites=true&w=majority&appName=nodeFormation`;
+mongoose.connect(dbURI)
+    .then((result) => app.listen(3000))
+    .catch(err => console.log(err));
+
+//mongose and mongo sandox and routes
+/*app.get('/add-blog', (req, res) => {
+    const blog = new Blog({
+        title: 'new blog',
+        snippet: 'about my new blog',
+        body: 'more about my new blog'
+    });
+    blog.save()
+        .then((result) => {
+            res.send(result);
         })
-        req.on('end', () => {
-            const params = new URLSearchParams(body);
-            const nom = params.get('name');
-            res.writeHead(200, { 'content-Type': 'text/html; charset = utf-8' });
-            res.end(`<h1> bonjour ${nom.toUpperCase()} </h1>`);
+        .catch((err) => {
+            console.log(err)
         });
-    } else {
-        res.writeHead(404,{'content-Type': 'text/html; charset = utf-8'});
-        res.end('<h1> 404 - page non trouvée </h1>');
-    }
+})*/
+
+
+//listen for requests
+// app.listen(3000);
+
+// middleware static files
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
+// routes exemples
+app.get('/', (req, res) => {
+    res.redirect('/blogs');
 });
-server.listen(8000,()=>{
-    console.log('le server est sur ecoute sur le http://localhost:8000');
+
+app.get('/about', (req, res) => {
+    res.render('about');
 })
+app.get('/blogs/create', (req, res) => {
+    res.render('create');
+})
+
+app.get('/blogs', (req, res) => {
+    Blog.find().sort({ createdAt: -1 })
+        .then((result) => {
+            res.render('index', { blogs: result })
+        })
+        .catch(err => console.log(err));
+})
+
+//post methode 
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
+    blog.save()
+        .then((result) => {
+            res.redirect('/blogs');
+        }).catch(err => console.log(err));
+})
+
+app.get('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+        .then(result => {
+            res.render('details', { blog: result, title: 'Blog Details' });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+
+    Blog.findByIdAndDelete(id)
+        .then(result => {
+            res.json({ redirect: '/blogs' });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+// 404 page
+app.use((req, res) => {
+    res.status(404).render('404.ejs');
+});
