@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+<body>
+    <main>
+        <div class="item">
+            <h2>
+                <%= result.title %>
+            </h2>
+            <p>
+                <%=result.detail %>
+            </p>
+            <button>remove</button>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

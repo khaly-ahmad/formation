@@ -1,21 +1,21 @@
 {
-  "name": "nodejs",
+  "name": "exercices",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node exercice.js",
-    "dev": "nodemon exercice.js"
+    "start": "app.js",
+    "dev": "nodemon app.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.21.0",
-    "mongoose": "^8.7.0"
-  },
-  "devDependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1",
     "nodemon": "^3.1.7"
   }
 }

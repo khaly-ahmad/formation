@@ -7,7 +7,8 @@ const Blog = require('./models/blog')
 app.set('view engine', 'ejs');
 
 // connect to mongodb 
-const dbURI = `mongodb+srv://khalyAmad:test-admin-12345@nodeformation.wrvx5.mongodb.net/node-course?retryWrites=true&w=majority&appName=nodeFormation`;
+const password = process.env.PASSWORD;
+const dbURI = `mongodb+srv://khalyAmad:${password}@nodeformation.wrvx5.mongodb.net/node-course?retryWrites=true&w=majority&appName=nodeFormation`;
 mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
     .catch(err => console.log(err));
@@ -56,15 +57,6 @@ app.get('/blogs', (req, res) => {
         .catch(err => console.log(err));
 })
 
-//post methode 
-app.post('/blogs', (req, res) => {
-    const blog = new Blog(req.body);
-    blog.save()
-        .then((result) => {
-            res.redirect('/blogs');
-        }).catch(err => console.log(err));
-})
-
 app.get('/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
@@ -75,6 +67,15 @@ app.get('/blogs/:id', (req, res) => {
             console.log(err);
         });
 });
+
+//post methode 
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
+    blog.save()
+        .then((result) => {
+            res.redirect('/blogs');
+        }).catch(err => console.log(err));
+})
 
 app.delete('/blogs/:id', (req, res) => {
     const id = req.params.id;

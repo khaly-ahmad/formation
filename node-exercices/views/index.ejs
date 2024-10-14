@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+            <section>
+                <div class="application">
+                    <h1> Add Blog</h1>
+                    <form action="/items" method="post">
+                        <label for="title"> titre : </label><br>
+                        <input type="text" id="title" name="title" required><br>
+                        <label for="detail"> detail : </label><br>
+                        <textarea name="detail" id="detail" cols="30" rows="10" required></textarea><br>
+                        <button type="submit">add</button>
+                    </form>
+                </div>
+            </section>
+            <main>
+                <% items.forEach(item=> { %>
+                    <a href="/<%=item._id %>">
+                        <div class="content">
+                            <h2>
+                                <%= item.title %>
+                            </h2>
+                            <p>
+                                <%=item.detail %>
+                            </p>
+                        </div>
+                    </a>
+                    <% }) %>
+            </main>
+
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
+</html>
