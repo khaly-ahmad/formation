@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blogs.css">
+    <title>blogs</title>
+    <style>
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        #imgInput {
+            position: absolute;
+            top: O;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: yellowgreen;
+            opacity: 0;
+        }
+
+        .display {
+            position: absolute;
+            top: O;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: gray;
+        }
+
+        .upload{
+           overflow: hidden;
+           width: 100px;
+           height: 100px;
+           position: relative; 
+           border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="upload">
+        <div class="display"></div>
+        <input id="imgInput" type="file">
+    </div>
+    <img id="imgOutput" alt="" style="border-radius: 50%;">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit necessitatibus aliquam hic, a harum quis nisi vitae inventore minima! Similique quae maxime repellendus laudantium optio sint tenetur earum rem natus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deleniti maxime obcaecati repellendus porro doloribus iste at? Quisquam non necessitatibus illo porro, perferendis, sapiente voluptate voluptatem numquam quia vero aperiam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quam id iste, nesciunt voluptates numquam cumque provident fugiat eveniet expedita dolorem possimus quia labore laboriosam autem alias iure, quis magni? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda eius alias odio iusto, rem aut officiis minima possimus amet ratione repellendus inventore hic deleniti nobis corrupti, ab debitis autem veniam.</p>
+    <script>
+        const input = document.getElementById('imgInput');
+        const output = document.getElementById('imgOutput');
+        input.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    output.src = e.target.result;
+                    output.style.width = "100px"
+                }
+                reader.readAsDataURL(file)
+            }
+        })
+    </script>
+</body>
+
+</html>
