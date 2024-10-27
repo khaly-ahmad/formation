@@ -33,23 +33,55 @@
             background-color: gray;
         }
 
-        .upload{
-           overflow: hidden;
-           width: 100px;
-           height: 100px;
-           position: relative; 
-           border-radius: 50%;
+        .upload {
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .container {
+            border-radius: 20px;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            min-width: 100%;
+            scroll-snap-align: start;
         }
     </style>
 </head>
 
 <body>
+
+    <div class="container">
+        <div class="item" style="background-color: red;"></div>
+        <div class="item" style="background-color: yellow;"></div>
+        <div class="item" style="background-color: green;"></div>
+    </div>
     <div class="upload">
         <div class="display"></div>
         <input id="imgInput" type="file">
     </div>
     <img id="imgOutput" alt="" style="border-radius: 50%;">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit necessitatibus aliquam hic, a harum quis nisi vitae inventore minima! Similique quae maxime repellendus laudantium optio sint tenetur earum rem natus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non deleniti maxime obcaecati repellendus porro doloribus iste at? Quisquam non necessitatibus illo porro, perferendis, sapiente voluptate voluptatem numquam quia vero aperiam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quam id iste, nesciunt voluptates numquam cumque provident fugiat eveniet expedita dolorem possimus quia labore laboriosam autem alias iure, quis magni? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda eius alias odio iusto, rem aut officiis minima possimus amet ratione repellendus inventore hic deleniti nobis corrupti, ab debitis autem veniam.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit necessitatibus aliquam hic, a harum quis nisi
+        vitae inventore minima! Similique quae maxime repellendus laudantium optio sint tenetur earum rem natus? Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Non deleniti maxime obcaecati repellendus porro doloribus
+        iste at? Quisquam non necessitatibus illo porro, perferendis, sapiente voluptate voluptatem numquam quia vero
+        aperiam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quam id iste, nesciunt voluptates
+        numquam cumque provident fugiat eveniet expedita dolorem possimus quia labore laboriosam autem alias iure, quis
+        magni? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda eius alias odio iusto, rem aut
+        officiis minima possimus amet ratione repellendus inventore hic deleniti nobis corrupti, ab debitis autem
+        veniam.</p>
     <script>
         const input = document.getElementById('imgInput');
         const output = document.getElementById('imgOutput');

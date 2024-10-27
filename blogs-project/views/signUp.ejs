@@ -10,15 +10,26 @@
 
 <body>
     <div class="connexion-form">
+        
         <h1>Sign Up</h1>
-        <form action="/register" method="post">
+        <form method="post">
+            <div class="username">
+                <label for="firstName">
+                    <span> first name</span>
+                    <input type="text" id="firstName" name="firstName" placeholder="first name">
+                </label>
+                <label for="lastName">
+                    <span> last name</span>
+                    <input type="text" id="lastName" name="lastName" placeholder="last name">
+                </label>
+            </div>
             <label for="email"> email: </label>
             <input type="email" name="email" id="email" placeholder="entrez votre email" required>
-            <div class="emailError"></div>
+            <p class="emailError" style="color: red;"></p>
             <label for="password">password:</label>
             <input type="password" name="password" id="password" placeholder="password" required>
-            <input type="password" name="password" id="password" placeholder="confirm password" required>
-            <div class="passwordError"></div>
+            <input type="password" name="confirmPassword" id="password" placeholder="confirm password" required>
+             <p class="passwordError" style="color: red;"> <%= passwordError %></p>
             <button type="submit">Sign Up </button>
             <p>have an account <a href="/login"> Log In</a></p>
         </form>
