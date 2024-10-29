@@ -30,11 +30,11 @@
             <div>
                 <img id="display" style="border-radius: 6px; margin-top: 10px;">
             </div>
-            <form action="#" enctype="multipart/form-data" method="post">
+            <form action="blogs" enctype="multipart/form-data" method="post">
                 <textarea name="content" id="content" placeholder="dites quelque chose..."> </textarea>
                 <button type="button">
                     <i class='bx bx-image-add'></i>
-                    <input type="file" id="file">
+                    <input type="file" name="image" id="file">
                 </button>
                 <button onclick="toggleCreateBlog()" type="submit">publier</button>
             </form>
@@ -98,342 +98,51 @@
             </a>
         </aside>
         <section class="middle-sidebar">
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> john doe </span>
-                        <span class="date"> 12:15</span>
+            <% posts.forEach(post=> { %>
+                <div class="post-details">
+                    <div class="profil">
+                        <img src="<%=post.profil %>" alt="">
+                        <div class="name-date">
+                            <span class="name"> <%=post.name %> </span>
+                            <span class="date"> 12:15</span>
+                        </div>
+                    </div>
+                    <div class="post-title">
+                        <h1>ceci est le titre du poste</h1>
+                        <p class="active"><%=post.content %></p>
+                    </div>
+                    <div id="image-post">
+                        <img src="<%=post.image %>" alt="">
+                    </div>
+                    <div class="state-post">
+                        <div class="icon">
+                            <img src="../images/message-rounded-dots-regular-24.png" alt="">
+                            <span>34k</span>
+                        </div>
+                        <div class="icon">
+                            <img src="../images/like-regular-24.png" alt="">
+                            <span>34k</span>
+                        </div>
+                        <div class="icon">
+                            <img src="../images/dislike-solid-24.png" alt="">
+                            <span>0</span>
+                        </div>
+                        <div class="icon">
+                            <img src="../images/share-regular-24.png" alt="">
+                            <span>34k</span>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <img src="<%=post.profil %>" alt="">
+                        <form action="#" method="post">
+                            <input type="text" name="search" id="search" placeholder="comment your opinion">
+                            <button type="submit">
+                                <i class='bx bx-send'></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="text" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> jane doe </span>
-                        <span class="date"> 12:15</span>
-                    </div>
-                </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> user unknow </span>
-                        <span class="date"> 12:15</span>
-                    </div>
-                </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> khaly </span>
-                        <span class="date"> 12:15</span>
-                    </div>
-                </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> djifri </span>
-                        <span class="date"> 12:15</span>
-                    </div>
-                </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="post-details">
-                <div class="profil">
-                    <img src="../images/clouds-5.jpg" alt="">
-                    <div class="name-date">
-                        <span class="name"> ousmane </span>
-                        <span class="date"> 12:15</span>
-                    </div>
-                </div>
-                <div class="post-title">
-                    <h1>ceci est le titre du poste</h1>
-                    <p class="active">un petit detail sur mon poste Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Hic,accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo odio culpa, quam
-                        porro,
-                        eum accusantium quod cupiditate sapiente illum dolore nam magni a similique perspiciatis ipsa
-                        dolores
-                        officia. Quos, asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-                        laborum.
-                        Sunt quia incidunt voluptas esse eos provident ducimus quisquam minus, ut cupiditate aut, quasi
-                        eveniet
-                        inventore ratione sed eius rem. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam
-                        ducimus molestiae, necessitatibus velit unde soluta. Perspiciatis, quasi voluptate ullam
-                        assumenda
-                        voluptas pariatur nam quia quo ipsa. Eius dolorem hic labore.
-                    </p>
-                </div>
-                <img src="../images/biologie.jpg" alt="post de photo">
-                <div class="state-post">
-                    <div class="icon">
-                        <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/like-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/dislike-solid-24.png" alt="">
-                        <span>0</span>
-                    </div>
-                    <div class="icon">
-                        <img src="../images/share-regular-24.png" alt="">
-                        <span>34k</span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <img src="../images/militaire.jpg" alt="">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="search" placeholder="comment your opinion">
-                        <button type="submit">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+            <% }) %>
         </section>
         <aside class="sidebar-droite">
             <div class="messages">
@@ -505,10 +214,10 @@
                 reader.readAsDataURL(file)
             }
         })
-        
+
         const createOverlay = document.querySelector('.create-overlay')
-        function toggleCreateBlog(){
-            createOverlay.style.display = createOverlay.style.display ==='flex'? 'none' : 'flex';
+        function toggleCreateBlog() {
+            createOverlay.style.display = createOverlay.style.display === 'flex' ? 'none' : 'flex';
         }
     </script>
 

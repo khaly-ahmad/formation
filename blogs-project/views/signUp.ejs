@@ -25,13 +25,13 @@
             </div>
             <label for="email"> email: </label>
             <input type="email" name="email" id="email" placeholder="entrez votre email" required>
-            <p class="emailError" style="color: red;"></p>
+            <p class="emailError" style="color: red;"> <%= emailError %></p>
             <label for="password">password:</label>
             <input type="password" name="password" id="password" placeholder="password" required>
-            <input type="password" name="confirmPassword" id="password" placeholder="confirm password" required>
-             <p class="passwordError" style="color: red;"> <%= passwordError %></p>
+            <input type="password" name="confirmPassword" id="password-confim" placeholder="confirm password" required>
+             <p class="passwordError" style="color: red;"> <%= passwordError %> </p>
             <button type="submit">Sign Up </button>
-            <p>have an account <a href="/login"> Log In</a></p>
+            <p>have an account <a href="/"> Log In</a></p>
         </form>
     </div>
 </body>

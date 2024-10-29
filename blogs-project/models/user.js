@@ -16,7 +16,7 @@ const userSchema = new Schema({
         lowercase: true,
         validate: {
             validator: isEmail,
-            message: 'please enter a valide email'
+            message: 'please enter a valide email' 
         }
     },password: {
         type: String,
