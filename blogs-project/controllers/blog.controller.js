@@ -21,22 +21,4 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 const uploaded = upload.single('image')
 
-// const createBlog = [
-//     upload.single('image'),
-//     async (req, res) => {
-//         const { content } = req.body;
-//         const imageUrl = req.file.path;
-//         const blog = new Blog({
-//             content,
-//             image: imageUrl,
-//             author: null
-//         });
-//         try {
-//             await blog.save();
-//             res.redirect('/blogs');
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// ]
 module.exports = uploaded;

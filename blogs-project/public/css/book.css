@@ -288,7 +288,8 @@ ul li:first-child a {
     gap: 3px;
 }
 
-#image-post {
+.image-post {
+    display: block;
     border-radius: 8px;
     margin-top: 10px;
     width: 100%;
@@ -296,7 +297,7 @@ ul li:first-child a {
     overflow: hidden;
 }
 
-#image-post img {
+.image-post img {
     width: 100%;
     height: 100%;
     object-fit: cover;

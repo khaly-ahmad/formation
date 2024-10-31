@@ -1,18 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { logIn, signUp, blogs, signUp_post, logIn_post, createBlog } = require('../controllers/user.controller');
-const uploaded = require('../controllers/blog.controller')
-//error handdler
-// const errorHandler = require('../middlewares/errorHandlers');
-// router.use(errorHandler)
+const authenticateToken = require('../middlewares/authenticate')
+const uploaded = require('../controllers/blog.controller');
 
 router.get('/', logIn);
 router.get('/signup', signUp);
-router.get('/blogs', blogs);
-// router.get('/home', home);
+router.get('/blogs',authenticateToken, blogs);
 router.post('/signup', signUp_post);
 router.post('/login', logIn_post);
-router.post('/blogs', uploaded, createBlog);
-
+router.post('/blogs',authenticateToken, uploaded, createBlog);
 
 module.exports = router

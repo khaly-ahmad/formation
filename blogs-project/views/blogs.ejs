@@ -20,8 +20,8 @@
             <div class="profil">
                 <img src="../images/clouds-5.jpg" alt="">
                 <div class="name-email">
-                    <span class="name"> john doe </span>
-                    <span class="email"> khaly1234@gmail.com</span>
+                    <span class="name"> <%= name %> </span>
+                    <span class="email"> <%= email %></span>
                 </div>
                 <i onclick="toggleCreateBlog()" class='bx bx-x-circle'></i>
             </div>
@@ -57,8 +57,8 @@
         <aside class="sidebar-gauche">
             <div class="my-profil">
                 <img src="../images/militaire.jpg" alt="">
-                <span class="name"> khaly ahmad </span>
-                <span class="address"> khaly1234@gamil.com</span>
+                <span class="name"> <%= name %> </span>
+                <span class="address"> <%= email %></span>
             </div>
             <ul class="link-different-page">
                 <li>
@@ -98,21 +98,26 @@
             </a>
         </aside>
         <section class="middle-sidebar">
-            <% posts.forEach(post=> { %>
+            <% myBlogs.forEach(blog=> { %>
                 <div class="post-details">
                     <div class="profil">
-                        <img src="<%=post.profil %>" alt="">
+                        <img src="<%=blog.image %>" alt="">
                         <div class="name-date">
-                            <span class="name"> <%=post.name %> </span>
-                            <span class="date"> 12:15</span>
+                            <span class="name">
+                                <%=blog.name %>
+                            </span>
+                            <span class="date">
+                                <%=blog.date %>
+                            </span>
                         </div>
                     </div>
                     <div class="post-title">
-                        <h1>ceci est le titre du poste</h1>
-                        <p class="active"><%=post.content %></p>
+                        <p class="active">
+                            <%=blog.content %>
+                        </p>
                     </div>
-                    <div id="image-post">
-                        <img src="<%=post.image %>" alt="">
+                    <div class="image-post">
+                        <img src="<%=blog.image %>" class="imgPost" alt="">
                     </div>
                     <div class="state-post">
                         <div class="icon">
@@ -133,7 +138,7 @@
                         </div>
                     </div>
                     <div class="comment">
-                        <img src="<%=post.profil %>" alt="">
+                        <img src="<%=blog.image %>" alt="">
                         <form action="#" method="post">
                             <input type="text" name="search" id="search" placeholder="comment your opinion">
                             <button type="submit">
@@ -142,7 +147,7 @@
                         </form>
                     </div>
                 </div>
-            <% }) %>
+                <% }) %>
         </section>
         <aside class="sidebar-droite">
             <div class="messages">
@@ -194,6 +199,16 @@
     </main>
 
     <script>
+
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.querySelectorAll('.image-post').forEach(parent =>{
+                const img = parent.querySelector('img');
+                if(!img.src|| img.src.endsWith('/')){
+                    parent.style.display='none'
+                }
+            })
+        })
+
         const para = document.querySelectorAll('p');
         para.forEach((p) => {
             p.addEventListener('click', () => {
@@ -215,9 +230,11 @@
             }
         })
 
+        const blogImagePost = document.querySelector('.imgPost');
         const createOverlay = document.querySelector('.create-overlay')
         function toggleCreateBlog() {
             createOverlay.style.display = createOverlay.style.display === 'flex' ? 'none' : 'flex';
+            console.log(blogImagePost.src)
         }
     </script>
 
