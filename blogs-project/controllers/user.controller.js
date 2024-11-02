@@ -28,7 +28,7 @@ const logIn_post = async (req, res) => {
             return res.status(400).render('logIn', { errors: 'email ou password incorrect' });
         }
 
-        const usr = { name: `${newUser.lastName} ${newUser.lastName}`, email: `${newUser.email}` }
+        const usr = {_id:`${user._id}`, name: `${user.firstName} ${user.lastName}`, email: `${user.email}` }
         const token = jwt.sign({ usr }, process.env.MON_SECRET, { expiresIn: '1h' })
 
         res.cookie('jwt', token, { httpOnly: true, });
@@ -58,10 +58,10 @@ const signUp_post = async (req, res, next) => {
         newUser.password = await bcrypt.hash(newUser.password, salt)
         await newUser.save();
         // generate a token
-        const usr = { name: `${newUser.firstName} ${newUser.lastName}`, email: `${newUser.email}` }
+        const usr = { _id: `${newUser._id}`, name: `${newUser.firstName} ${newUser.lastName}`, email: `${newUser.email}` }
         const token = jwt.sign({ usr  }, process.env.MON_SECRET, { expiresIn: '1h' })
         res.cookie('jwt', token, { httpOnly: true, })
-        res.status(302).redirect(`/blogs?username=${newUser.firstName} ${newUser.lastName}&email=${newUser.email}`);
+        res.status(302).redirect(`/blogs`);
     } catch (err) {
         const error = errorHandler(err);
         res.status(500).render('signUp', { passwordError: error.password, emailError: error.email })
@@ -95,7 +95,7 @@ const createBlog = async (req, res) => {
     const { content } = req.body;
     const imageUrl = req.file ? req.file.path : '';
     const blog = new Blog({
-        author: req.userId,
+        author: req.usr._id,
         content,
         image: imageUrl,
     });

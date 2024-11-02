@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 
 //view engine
 app.set('view engine', 'ejs');
-
+ 
 //parser les url
 app.use(express.urlencoded({ extended: true }));
 
