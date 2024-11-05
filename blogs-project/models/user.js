@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const Schema = mongoose.Schema
 const userSchema = new Schema({
+    profil: {
+        type: String,
+        default: "../images/2024110213043705.png"
+    },
     firstName: {
         type: String,
         required: [true,'please enter a first name'] 

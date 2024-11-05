@@ -28,7 +28,7 @@ const logIn_post = async (req, res) => {
             return res.status(400).render('logIn', { errors: 'email ou password incorrect' });
         }
 
-        const usr = {_id:`${user._id}`, name: `${user.firstName} ${user.lastName}`, email: `${user.email}` }
+        const usr = { _id: `${user._id}`, name: `${user.firstName} ${user.lastName}`, email: `${user.email}` }
         const token = jwt.sign({ usr }, process.env.MON_SECRET, { expiresIn: '1h' })
 
         res.cookie('jwt', token, { httpOnly: true, });
@@ -59,7 +59,7 @@ const signUp_post = async (req, res, next) => {
         await newUser.save();
         // generate a token
         const usr = { _id: `${newUser._id}`, name: `${newUser.firstName} ${newUser.lastName}`, email: `${newUser.email}` }
-        const token = jwt.sign({ usr  }, process.env.MON_SECRET, { expiresIn: '1h' })
+        const token = jwt.sign({ usr }, process.env.MON_SECRET, { expiresIn: '1h' })
         res.cookie('jwt', token, { httpOnly: true, })
         res.status(302).redirect(`/blogs`);
     } catch (err) {
@@ -71,21 +71,22 @@ const signUp_post = async (req, res, next) => {
 const blogs = async (req, res) => {
     const name = req.usr.name;
     const email = req.usr.email
+    const id = req.usr._id;
     try {
         const blogs = await Blog.find().populate('author', 'firstName lastName');
         months = ['jan', 'fev', 'mar', 'apr', 'mai', 'jun', 'jull', 'Aout', 'sep', 'oct', 'nov', 'dec'];
         const myBlogs = []
         blogs.forEach((blog) => {
-            const day = blog.createAt.getDate();
-            const month = months[blog.createAt.getMonth()];
-            const year = blog.createAt.getFullYear();
+            const day = blog.createdAt.getDate();
+            const month = months[blog.createdAt.getMonth()];
+            const year = blog.createdAt.getFullYear();
             const name = blog.author.firstName + " " + blog.author.lastName;
             const content = blog.content;
             const image = blog.image;
             const date = `${day} ${month} ${year}`;
             myBlogs.push({ name, content, image, date });
         })
-        res.render('blogs', { myBlogs, name, email })
+        res.render('blogs', { myBlogs, name, email, id})
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -107,6 +108,31 @@ const createBlog = async (req, res) => {
     }
 }
 
+const get_updateProfil = async (req, res) => {
+    try {
+        res.render('changeProfil');
+    } catch (err) {
+        errorHandler(err)
+    }
+}
+
+const updateProfil = async (req, res) => {
+    const { firstName, lastName } = req.body;
+    try {
+        const imageUrl = req.file ? req.file.path : '../images/2024110213043705.png'
+        const updateUser = await User.findByIdAndUpdate({
+            firstName,
+            lastName,
+            profil: imageUrl
+        })
+        await User.save()
+        console.log(updateUser)
+        res.redirect('/blogs');
+    } catch (err) {
+        errorHandler(err)
+    }
+}
+
 module.exports = {
     logIn,
     signUp,
@@ -114,4 +140,6 @@ module.exports = {
     signUp_post,
     logIn_post,
     createBlog,
+    get_updateProfil,
+    updateProfil
 }

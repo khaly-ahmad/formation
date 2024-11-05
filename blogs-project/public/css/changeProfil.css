@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #cecccc;
+}
+
+.my-profil {
+    border-radius: 8px;
+    background-color: white;
+    margin: auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.background {
+    height: 40%;
+    width: 100%;
+    background-color: #4702a8;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.my-profil img {
+    background-color: white;
+    margin: 10px 0;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    border: 5px solid #4702a8;
+    padding: 5px;
+    z-index: 2;
+}
+
+button[type="button"]{
+    position: relative;
+    width: max-content;
+    background: transparent;
+    overflow: hidden;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+button[type="button"]:hover {
+    background-color: #4702a8;
+    color: white;
+}
+
+span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button[type="button"] input[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(5);
+    opacity: 0;
+}
+
+.name {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 8px 0;
+    border-bottom: 1px solid #cecccc;
+}
+
+input[type="text"] {
+    outline: none;
+    border: #cecccc 1px solid;
+    border-radius: 8px;
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type="text"]:focus {
+    border: #4702a8 2px solid;
+}
+
+i {
+    color: #4702a8;
+    font-size: 18px;
+}
+
+button[type="submit"] {
+    width: 90%;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4702a8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 8px 0 15px;
+    cursor: pointer;
+}

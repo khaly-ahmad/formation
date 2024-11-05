@@ -20,8 +20,12 @@
             <div class="profil">
                 <img src="../images/clouds-5.jpg" alt="">
                 <div class="name-email">
-                    <span class="name"> <%= name %> </span>
-                    <span class="email"> <%= email %></span>
+                    <span class="name">
+                        <%= name %>
+                    </span>
+                    <span class="email">
+                        <%= email %>
+                    </span>
                 </div>
                 <i onclick="toggleCreateBlog()" class='bx bx-x-circle'></i>
             </div>
@@ -55,11 +59,15 @@
     </nav>
     <main>
         <aside class="sidebar-gauche">
-            <div class="my-profil">
-                <img src="../images/militaire.jpg" alt="">
-                <span class="name"> <%= name %> </span>
-                <span class="address"> <%= email %></span>
-            </div>
+                <a href="/blogs/<%= id %>" class="my-profil" style="text-decoration: none; color: gray;">
+                    <img src="../images/militaire.jpg" alt="">
+                    <span class="name">
+                        <%= name %>
+                    </span>
+                    <span class="address">
+                        <%= email %>
+                    </span>
+                </a>
             <ul class="link-different-page">
                 <li>
                     <a href="#">
@@ -200,11 +208,11 @@
 
     <script>
 
-        document.addEventListener('DOMContentLoaded',()=>{
-            document.querySelectorAll('.image-post').forEach(parent =>{
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.image-post').forEach(parent => {
                 const img = parent.querySelector('img');
-                if(!img.src|| img.src.endsWith('/')){
-                    parent.style.display='none'
+                if (!img.src || img.src.endsWith('/')) {
+                    parent.style.display = 'none'
                 }
             })
         })
