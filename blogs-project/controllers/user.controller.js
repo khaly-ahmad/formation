@@ -69,11 +69,13 @@ const signUp_post = async (req, res, next) => {
 }
 
 const blogs = async (req, res) => {
-    const name = req.usr.name;
-    const email = req.usr.email
     const id = req.usr._id;
     try {
-        const blogs = await Blog.find().populate('author', 'firstName lastName');
+        const user = await User.findById(id);
+        const name = `${user.firstName} ${user.lastName}`
+        const email = `${user.email}`
+        const myProfile = `${user.profil}`
+        const blogs = await Blog.find().populate('author', 'firstName lastName profil');
         months = ['jan', 'fev', 'mar', 'apr', 'mai', 'jun', 'jull', 'Aout', 'sep', 'oct', 'nov', 'dec'];
         const myBlogs = []
         blogs.forEach((blog) => {
@@ -81,12 +83,13 @@ const blogs = async (req, res) => {
             const month = months[blog.createdAt.getMonth()];
             const year = blog.createdAt.getFullYear();
             const name = blog.author.firstName + " " + blog.author.lastName;
+            const profile = blog.author.profil;
             const content = blog.content;
             const image = blog.image;
             const date = `${day} ${month} ${year}`;
-            myBlogs.push({ name, content, image, date });
-        })
-        res.render('blogs', { myBlogs, name, email, id})
+            myBlogs.push({ name, profile, content, image, date});
+        });
+        res.render('blogs', { myBlogs, name, email, myProfile });
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -95,38 +98,41 @@ const blogs = async (req, res) => {
 const createBlog = async (req, res) => {
     const { content } = req.body;
     const imageUrl = req.file ? req.file.path : '';
-    const blog = new Blog({
-        author: req.usr._id,
-        content,
-        image: imageUrl,
-    });
     try {
+        const user = await User.findById(req.usr._id)
+        const blog = new Blog({
+            author: user._id,
+            content,
+            image: imageUrl,
+        });
         await blog.save();
         res.status(301).redirect('/blogs')
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
 }
-
 const get_updateProfil = async (req, res) => {
+    const profil = '../images/2024110213043705.png';
     try {
-        res.render('changeProfil');
+        res.render('changeProfil', { profil });
     } catch (err) {
         errorHandler(err)
     }
 }
 
+
 const updateProfil = async (req, res) => {
-    const { firstName, lastName } = req.body;
     try {
-        const imageUrl = req.file ? req.file.path : '../images/2024110213043705.png'
-        const updateUser = await User.findByIdAndUpdate({
+        const user = await User.findById(req.usr._id);
+        const firstName = (req.body.firstName !== "") ? req.body.firstName : user.firstName;
+        const lastName = (req.body.lastName !== "") ? req.body.lastName : user.lastName;
+        const imageUrl = req.file ? req.file.path : '../images/2024110213043705.png';
+        const update = {
             firstName,
             lastName,
             profil: imageUrl
-        })
-        await User.save()
-        console.log(updateUser)
+        }
+        await User.findByIdAndUpdate(req.usr._id, update, { new: true });
         res.redirect('/blogs');
     } catch (err) {
         errorHandler(err)
@@ -142,4 +148,4 @@ module.exports = {
     createBlog,
     get_updateProfil,
     updateProfil
-}
+} 

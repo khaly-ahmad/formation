@@ -59,8 +59,8 @@
     </nav>
     <main>
         <aside class="sidebar-gauche">
-                <a href="/blogs/<%= id %>" class="my-profil" style="text-decoration: none; color: gray;">
-                    <img src="../images/militaire.jpg" alt="">
+                <a href="/blogs/update" class="my-profil" style="text-decoration: none; color: gray;">
+                    <img src="<%= myProfile %>" alt="">
                     <span class="name">
                         <%= name %>
                     </span>
@@ -109,7 +109,7 @@
             <% myBlogs.forEach(blog=> { %>
                 <div class="post-details">
                     <div class="profil">
-                        <img src="<%=blog.image %>" alt="">
+                        <img src="<%=blog.profile%>" alt="">
                         <div class="name-date">
                             <span class="name">
                                 <%=blog.name %>
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                     <div class="comment">
-                        <img src="<%=blog.image %>" alt="">
+                        <img src="<%=myProfile %>" alt="">
                         <form action="#" method="post">
                             <input type="text" name="search" id="search" placeholder="comment your opinion">
                             <button type="submit">

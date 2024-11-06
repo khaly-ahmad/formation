@@ -24,8 +24,8 @@ app.use(router);
 //connexion du DB
 mongoose.connect(process.env.URI)
     .then(() => {
-        app.listen(3000, () => {
-            console.log('data base and server connected');
+        app.listen(3000, '192.168.1.138', () => {
+            console.log('data base and server connected on http://192.168.1.138:3000');
         });
     })
     .catch(err => console.log(err));

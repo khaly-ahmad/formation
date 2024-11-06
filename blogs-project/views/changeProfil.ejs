@@ -8,52 +8,31 @@
     <title> your profil</title>
 </head>
 <body>
-    <form action="/blogs" method="post" class="my-profil" enctype="multipart/form-data">
+    <form action="/blogs/update" method="post" class="my-profil" enctype="multipart/form-data">
         <div class="background"></div>
-        <img src="../public/images/2024110213043705.png" alt="" srcset="">
+        <img src="<%=profil %>" alt="" srcset="">
         <button type="button">
-            <input type="file">
+            <input name="myProfil" type="file">
             <span>change profil </span>
         </button>
         <div class="name">
-            <span class="span"> your first name </span>
-            <i class='bx bxs-edit-alt'></i>
+            <input type="text" name="firstName" placeholder="enter your firstName" class="span">
         </div>
         <div class="name">
-            <span class="span">your last name</span>
-            <i class='bx bxs-edit-alt'></i>
+            <input type="text" name="lastName" placeholder="enter your firstName" class="span">
         </div>
         <button type="submit"> update </button>
     </form>
 
     <script>
-        const span = document.querySelectorAll('.span')
-        span.forEach((sp)=>{
-            sp.addEventListener('click',()=>{
-                sp.nextElementSibling.style.display="none"
-                const input = document.createElement('input');
-                input.type='text';
-                input.value= sp.textContent;
-                sp.replaceWith(input);
-                input.focus();
-
-                input.addEventListener('blur',()=>{
-                    sp.textContent=input.value;
-                    input.replaceWith(sp);
-                })
-            })
-        })
-
         const inputImage = document.querySelector(`input[type="file"]`);
         const output = document.querySelector('img');
         inputImage.addEventListener('change',(e)=>{
             const file = e.target.files[0];
-            console.log(file)
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     output.src = e.target.result;
-                    console.log(output)
                 }
                 reader.readAsDataURL(file)
             }

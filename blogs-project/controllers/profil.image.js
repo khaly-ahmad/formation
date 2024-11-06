@@ -1,6 +1,6 @@
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 
 cloudinary.config({
@@ -18,5 +18,4 @@ const storage = new CloudinaryStorage({
 })
 
 const upload = multer({ storage });
-const uploadProfil = upload.single('image');
-module.exports = uploadProfil;
+module.exports = upload;
