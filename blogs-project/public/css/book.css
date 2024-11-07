@@ -5,19 +5,30 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #4702a8;
+    --body-color: #e4e2e2;
+    --bg-color: white;
+    --radius: 20px
+}
+
 body {
-    background-color: #e4e2e2;
+    background-color: var(--body-color);
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-nav {
-    background-color: white;
+header {
+    width: 100%;
+    background-color: var(--bg-color);
+    height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-bar {
-    width: 1000px;
+    width: 1070px;
     position: sticky;
     top: 0;
     justify-content: space-between;
@@ -80,9 +91,10 @@ nav {
 }
 
 main {
+    width: 100vw;
     margin: 10px auto 0;
     display: flex;
-    flex: 1;
+    justify-content: center;
     overflow: hidden;
     gap: 30px;
 }
@@ -93,7 +105,8 @@ main {
     flex-direction: column;
     gap: 40px;
     height: 100%;
-    width: 270px;
+    min-width: 270px;
+    max-width: 300px;
     flex: 1;
 }
 
@@ -112,8 +125,8 @@ main {
 }
 
 .sidebar-gauche .my-profil img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 10px;
     border-radius: 50%;
 }
@@ -227,8 +240,8 @@ ul li:first-child a {
 
 .post-details .profil img,
 .nav-bar img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
 }
 
@@ -313,8 +326,8 @@ ul li:first-child a {
 }
 
 .comment img {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
 }
 
@@ -430,7 +443,7 @@ hr {
     height: 100%;
     width: 100%;
     background: rgba(206, 205, 205, 0.4);
-    backdrop-filter:blur(5px);
+    backdrop-filter: blur(5px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -438,7 +451,8 @@ hr {
 }
 
 .createBlog,
-.name-email, .createBlog form{
+.name-email,
+.createBlog form {
     display: flex;
     flex-direction: column;
 }
@@ -527,7 +541,8 @@ button[type="button"] input[type="file"] {
     background-color: #4702a8;
     color: white;
 }
-button:hover{
+
+button:hover {
     cursor: pointer;
 }
 
@@ -537,4 +552,99 @@ button:hover{
     font-size: 25px;
     color: red;
     cursor: pointer;
+}
+
+.search-bar a {
+    display: none;
+}
+
+@media only screen and (max-width:1024px) {
+    .sidebar-droite {
+        display: none;
+    }
+
+    .post-details {
+        width: 480px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .post-details {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .post-details .profil img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .name-date .name {
+        font-size: 30px;
+    }
+
+    .nav-bar h1 {
+        font-size: 40px;
+    }
+
+    .sidebar-gauche {
+        display: none;
+    }
+
+    .post-details {
+        width: 480px;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex: 1;
+    }
+
+    .search-bar input,
+    .search-bar img {
+        display: none;
+    }
+
+    .search-bar a {
+        display: block;
+        padding: 5px;
+        border-radius: 8px;
+    }
+    .search-bar a:hover {
+        background-color: var(--body-color);
+    }
+    .search-bar a i {
+        font-size: 28px;
+        color: var(--primary-color);
+        font-weight: 300;
+    }
+
+    .right a {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .nav-bar h1 {
+        display: none;
+        font-size: 25px;
+    }
+
+    .post-details {
+        width: 100%;
+    }
+
+    .nav-bar img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .post-details .profil img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
 }

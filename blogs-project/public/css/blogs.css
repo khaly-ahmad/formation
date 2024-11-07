@@ -1,0 +1,383 @@
+html, body {
+    font-size: 16px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4702a8;
+    --body-color: #e4e2e2;
+    --bg-color: white;
+    --radius: 20px
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+header {
+    width: 100%;
+    background-color: var(--bg-color);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 1 1024px;
+    gap: 5px;
+    margin: auto;
+}
+
+.nav-bar h1 {
+    font-size: 3.5em;
+    text-transform: capitalize;
+    color: var(--primary-color);
+}
+
+
+.nav-bar .search-bar {
+    min-width: 50px;
+    max-width: 450px;
+    flex-grow: 1;
+    height: 40px;
+    border-radius: 50vh;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50vh;
+    outline: none;
+    padding: 0 8px 0 50px;
+    font-size: large;
+    background-color: var(--body-color);
+}
+
+.nav-bar .search-bar img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+}
+
+.right {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.right a {
+    border-radius: 50vh;
+    padding: 3px 14px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    background-color: #4702a8;
+}
+
+.right img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+
+main {
+    margin-top: 5px;
+    height: calc(100vh - 75px);
+    width: 100%;
+    display: flex;
+}
+.sidebar-gauche {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    width: 300px;
+    flex: 1;
+}
+
+.sidebar-gauche .my-profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: var(--radius);
+}
+
+.my-profil:hover {
+    background-color: #cecccc;
+}
+
+.sidebar-gauche .my-profil img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.my-profil .name {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.address {
+    color: gray;
+}
+
+.link-different-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+li a {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #cecccc;
+}
+
+li a:active {
+    background-color: #4702a8;
+    span {
+        color: white;
+    }
+}
+
+li a span {
+    justify-self: start;
+    font-size: 1.6em;
+    font-weight: 500;
+    color: black;
+}
+
+li a i {
+    font-size: 1.6em;
+    justify-self: end;
+    color: #aaa9a9;
+}
+
+ul li:first-child a {
+    background-color: var(--primary-color);
+    span {
+        color: white;
+    }
+}
+
+.sidebar-gauche ul+a {
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 50px;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 50vh;
+}
+
+.middle-sidebar {
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.post-details {
+    padding: 20px 10px;
+    width: 400px;
+    box-shadow: -2px 2px 2px rgba(0, 0, 0, .1);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.post-details,
+.name-date {
+    justify-content: space-between;
+}
+
+.post-details .profil,
+.nav-bar .right,
+.nav-bar {
+    gap: 10px
+}
+
+.post-details .profil img,
+.nav-bar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.name-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-date .name {
+    text-transform: capitalize;
+    font-size: 1.4em;
+    color: #4702a8;
+    font-weight: bold;
+}
+
+.date {
+    color: gray;
+}
+
+.post-title h1 {
+    margin: 10px 0;
+}
+
+.post-title p {
+    font-size: 17px;
+}
+
+.active {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.state-post {
+    justify-content: space-around;
+    align-items: end;
+    margin: 10px 0 0;
+}
+
+.state-post .icon img {
+    width: 25px;
+    height: 25px;
+}
+
+.icon span {
+    color: gray;
+    font-size: 15px;
+}
+
+.icon {
+    cursor: pointer;
+    background-color: #e4e2e2;
+    padding: .3em .5em;
+    border-radius: 50vh;
+    gap: 3px;
+}
+
+.image-post {
+    display: block;
+    border-radius: 8px;
+    margin-top: 10px;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.image-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.comment {
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+.comment img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.comment form {
+    margin-left: 8px;
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    border-radius: 50vh;
+    overflow: hidden;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    border-radius: 50vh;
+    border: none;
+    background-color: #f3f1f1;
+    font-size: 1.1rem;
+    padding-left: 16px;
+}
+
+input:focus {
+    border: #4702a8 2px solid;
+}
+
+.comment form button {
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    background-color: transparent;
+}
+
+i {
+    color: #4702a8;
+    font-size: 25px;
+}
+
+
+
+
+
+@media only screen and (max-width: 574px) {
+    .search-bar {
+        display: none;
+    }
+}
