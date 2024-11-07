@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/createBlog.css">
+    <title>create your blogs</title>
+</head>
+
+<body>
+    <div class="create-overlay">
+        <div class="createBlog">
+            <div class="profil">
+                <img src="../images/clouds-5.jpg" alt="">
+                <div class="name-email">
+                    <span class="name">
+                        <%= name %>
+                    </span>
+                    <span class="email">
+                        <%= email %>
+                    </span>
+                </div>
+                <a href="/blogs"><i class='bx bx-x-circle'></i></a>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <img id="display" style="border-radius: 6px; margin-top: 10px;">
+            </div>
+            <form action="/blogs" enctype="multipart/form-data" method="post">
+                <textarea name="content" id="content" placeholder="dites quelque chose..."> </textarea>
+                <button type="button">
+                    <i class='bx bx-image-add'></i>
+                    <input type="file" name="image" id="file">
+                </button>
+                <button type="submit">publier</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const input = document.getElementById('file');
+        const output = document.getElementById('display');
+        input.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    output.src = e.target.result;
+                    output.style.width = "100px"
+                    output.style.width = "100px"
+                }
+                reader.readAsDataURL(file)
+            }
+        })
+    </script>
+</body>
+
+</html>

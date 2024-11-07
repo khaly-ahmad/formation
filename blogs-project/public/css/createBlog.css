@@ -1,0 +1,120 @@
+.create-overlay {
+    height: 100vh;
+    background: rgba(206, 205, 205, 0.4);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createBlog,
+.name-email,
+.createBlog form {
+    display: flex;
+    flex-direction: column;
+}
+
+.createBlog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: min-content;
+}
+
+.createBlog .profil {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.createBlog .profil img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.name-email .name {
+    font-size: x-large;
+    font-weight: bold;
+    color: #4702a8;
+}
+
+.name-email .email {
+    color: #cecccc;
+}
+
+.createBlog form {
+    width: 400px;
+}
+
+.createBlog form textarea {
+    margin-top: 20px;
+    outline: none;
+    font-size: larger;
+    width: 100%;
+    min-height: 200px;
+    max-height: max-content;
+    border: none;
+    background-color: #f3f0f0;
+    border-radius: 8px;
+    resize: none;
+}
+
+.createBlog form textarea:focus {
+    border: #4702a8 1px solid;
+}
+
+
+button[type="button"] {
+    margin: 10px;
+    border: none;
+    overflow: hidden;
+    background-color: transparent;
+    color: #4702a8;
+    width: max-content;
+    position: relative;
+    border-radius: 8px;
+}
+
+button[type="button"] .bx-image-add {
+    font-size: 25px;
+}
+
+button[type="button"] input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(5);
+    opacity: 0;
+}
+
+.createBlog form button[type="submit"] {
+    padding: 8px;
+    border-radius: 8px;
+    font-size: larger;
+    border: 0;
+    background-color: #4702a8;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    flex: 1;
+    text-align: end;
+}
+
+.bx-x-circle {
+    font-size: 25px;
+    color: red;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:480px) {
+    .createBlog form {
+        width: calc(100vw - 20px);
+    }
+}

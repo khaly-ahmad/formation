@@ -87,12 +87,16 @@ const blogs = async (req, res) => {
             const content = blog.content;
             const image = blog.image;
             const date = `${day} ${month} ${year}`;
-            myBlogs.push({ name, profile, content, image, date});
+            myBlogs.push({ name, profile, content, image, date });
         });
         res.render('blogs', { myBlogs, name, email, myProfile });
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
+}
+
+const createBlog_get = (req, res) => {
+        res.render('createBlog', {name : req.usr.name, email:req.usr.email});
 }
 
 const createBlog = async (req, res) => {
@@ -106,7 +110,7 @@ const createBlog = async (req, res) => {
             image: imageUrl,
         });
         await blog.save();
-        res.status(301).redirect('/blogs')
+        res.status(302).redirect('/blogs')
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -147,5 +151,6 @@ module.exports = {
     logIn_post,
     createBlog,
     get_updateProfil,
-    updateProfil
+    updateProfil,
+    createBlog_get
 } 

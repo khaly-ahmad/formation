@@ -15,35 +15,6 @@
 </head>
 
 <body>
-    <div class="create-overlay">
-        <div class="createBlog">
-            <div class="profil">
-                <img src="../images/clouds-5.jpg" alt="">
-                <div class="name-email">
-                    <span class="name">
-                        <%= name %>
-                    </span>
-                    <span class="email">
-                        <%= email %>
-                    </span>
-                </div>
-                <i onclick="toggleCreateBlog()" class='bx bx-x-circle'></i>
-            </div>
-            <br>
-            <hr>
-            <div>
-                <img id="display" style="border-radius: 6px; margin-top: 10px;">
-            </div>
-            <form action="blogs" enctype="multipart/form-data" method="post">
-                <textarea name="content" id="content" placeholder="dites quelque chose..."> </textarea>
-                <button type="button">
-                    <i class='bx bx-image-add'></i>
-                    <input type="file" name="image" id="file">
-                </button>
-                <button onclick="toggleCreateBlog()" type="submit">publier</button>
-            </form>
-        </div>
-    </div>
     <header>
         <div class="nav-bar">
             <h1>blogsApp</h1>
@@ -53,27 +24,27 @@
                 <a href="#"><i class='bx bx-bell'></i></a>
                 <a href="#"><i class='bx bx-chat'></i></a>
                 <a href="#"><i class='bx bx-cog'></i></a>
-                <a href="#"><i class='bx bx-edit-alt'></i></a>
+                <a href="/blogs/create"><i class='bx bx-edit-alt'></i></a>
                 <input type="search" name="search" id="search" placeholder="search...">
                 <img src="../images/search-regular-24.png" alt="">
             </div>
             <div class="right">
-                <a onclick="toggleCreateBlog()" href="#"> create </a>
-                <img src="../images/militaire.jpg" alt="">
+                <a href="blogs/create"> create </a>
+                <a href="/blogs/update"><img src="<%= myProfile %>" alt=""></a>
             </div>
         </div>
     </header>
     <main>
         <aside class="sidebar-gauche">
-                <a href="/blogs/update" class="my-profil" style="text-decoration: none; color: gray;">
-                    <img src="<%= myProfile %>" alt="">
-                    <span class="name">
-                        <%= name %>
-                    </span>
-                    <span class="address">
-                        <%= email %>
-                    </span>
-                </a>
+            <a href="/blogs/update" class="my-profil" style="text-decoration: none; color: gray;">
+                <img src="<%= myProfile %>" alt="">
+                <span class="name">
+                    <%= name %>
+                </span>
+                <span class="address">
+                    <%= email %>
+                </span>
+            </a>
             <ul class="link-different-page">
                 <li>
                     <a href="#">
@@ -107,9 +78,7 @@
                     </a>
                 </li>
             </ul>
-            <a onclick="toggleCreateBlog()" href="#">
-                create poste
-            </a>
+            <a href="/blogs/create">create poste</a>
         </aside>
         <section class="middle-sidebar">
             <% myBlogs.forEach(blog=> { %>
