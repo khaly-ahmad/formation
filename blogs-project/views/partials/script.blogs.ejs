@@ -1,0 +1,12 @@
+<script>
+    const outputComment = document.querySelectorAll('.post-details').forEach((post) => {
+        post.querySelector('.commentIcon').addEventListener('click', (e) => {
+            e.preventDefault();
+            const showComment = post.querySelector('.comment-output');
+            showComment.style.display = 'flex';
+            post.querySelector('.bx-x').addEventListener('click',()=>{
+                showComment.style.display = 'none';
+            })
+        })
+    })
+</script>

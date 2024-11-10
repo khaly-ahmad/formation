@@ -103,9 +103,9 @@
                         <img src="<%=blog.image %>" class="imgPost" alt="">
                     </div>
                     <div class="state-post">
-                        <div class="icon">
+                        <div class="icon commentIcon">
                             <img src="../images/message-rounded-dots-regular-24.png" alt="">
-                            <span>34k</span>
+                            <span><%=blog.comment.length %></span>
                         </div>
                         <div class="icon">
                             <img src="../images/like-regular-24.png" alt="">
@@ -120,10 +120,20 @@
                             <span>34k</span>
                         </div>
                     </div>
+                    <div class="comment-output">
+                        <div class="header-comment">
+                            <h3> comments </h3>
+                            <i class="bx bx-x"></i>
+                        </div>
+                        <% blog.comment.forEach(comment => { %>
+                         <p><%= comment.content %></p>
+                        <% }) %>
+                    </div>
                     <div class="comment">
                         <img src="<%=myProfile %>" alt="">
-                        <form action="#" method="post">
-                            <input type="text" name="search" id="search" placeholder="comment your opinion">
+                        <form action="/blogs/comment" method="post" class="comment-form">
+                            <input type="hidden" name="blogId" value="<%=blog._id%>">
+                            <input type="text" name="comment" placeholder="comment your opinion">
                             <button type="submit">
                                 <i class='bx bx-send'></i>
                             </button>
@@ -180,46 +190,7 @@
             </div>
         </aside>
     </main>
-
-    <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.image-post').forEach(parent => {
-                const img = parent.querySelector('img');
-                if (!img.src || img.src.endsWith('/')) {
-                    parent.style.display = 'none'
-                }
-            })
-        })
-
-        const para = document.querySelectorAll('p');
-        para.forEach((p) => {
-            p.addEventListener('click', () => {
-                p.classList.toggle('active')
-            })
-        })
-        const input = document.getElementById('file');
-        const output = document.getElementById('display');
-        input.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    output.src = e.target.result;
-                    output.style.width = "100px"
-                    output.style.width = "100px"
-                }
-                reader.readAsDataURL(file)
-            }
-        })
-
-        const blogImagePost = document.querySelector('.imgPost');
-        const createOverlay = document.querySelector('.create-overlay')
-        function toggleCreateBlog() {
-            createOverlay.style.display = createOverlay.style.display === 'flex' ? 'none' : 'flex';
-            console.log(blogImagePost.src)
-        }
-    </script>
+    <%- include('./partials/script.blogs.ejs') %>
 
 </body>
 

@@ -230,6 +230,7 @@ ul li:first-child a {
     box-shadow: -2px 2px 2px rgba(0, 0, 0, .1);
     border-radius: 20px;
     background-color: white;
+    position: relative;
 }
 
 .post-details,
@@ -557,6 +558,34 @@ button:hover {
     font-size: 25px;
     color: red;
     cursor: pointer;
+}
+
+
+.comment-output {
+    width: 95%;
+    margin: auto;
+    border: red solid 1px;
+    position: absolute;
+    background-color: #ffff;
+    z-index: 10;
+    height: auto;
+    max-height: 200px;
+    border-radius: 8px;
+    padding: 5px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.header-comment {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h3 {
+    text-transform: capitalize;
 }
 
 .search-bar a {

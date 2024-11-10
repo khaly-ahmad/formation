@@ -87,9 +87,10 @@ const blogs = async (req, res) => {
             const content = blog.content;
             const image = blog.image;
             const date = `${day} ${month} ${year}`;
-            myBlogs.push({ name, profile, content, image, date });
+            const _id = blog._id;
+            myBlogs.push({ _id, name, profile, content, image, date, comment: blog.comments });
         });
-        res.render('blogs', { myBlogs, name, email, myProfile });
+        res.render('blogs', { myBlogs , name, email, myProfile });
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -143,6 +144,22 @@ const updateProfil = async (req, res) => {
     }
 }
 
+const addComment = async (req,res)=>{
+    const user = req.usr._id;
+    const { blogId, comment} = req.body;
+    try {
+        const blog = await Blog.findById(blogId);
+        if(!blog) {
+            res.status(404).json({ message: 'blog introuvable'});
+        } 
+        blog.comments.push({ author: user, content: comment});
+        blog.save();
+        res.redirect('/blogs')
+    }catch(err){
+        console.log(err);
+    }
+}
+
 module.exports = {
     logIn,
     signUp,
@@ -152,5 +169,6 @@ module.exports = {
     createBlog,
     get_updateProfil,
     updateProfil,
-    createBlog_get
+    createBlog_get,
+    addComment
 } 
