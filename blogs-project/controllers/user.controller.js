@@ -28,7 +28,7 @@ const logIn_post = async (req, res) => {
             return res.status(400).render('logIn', { errors: 'email ou password incorrect' });
         }
 
-        const usr = { _id: `${user._id}`, name: `${user.firstName} ${user.lastName}`, email: `${user.email}` }
+        const usr = { _id: `${user._id}`}
         const token = jwt.sign({ usr }, process.env.MON_SECRET, { expiresIn: '1h' })
 
         res.cookie('jwt', token, { httpOnly: true, });
@@ -58,7 +58,7 @@ const signUp_post = async (req, res, next) => {
         newUser.password = await bcrypt.hash(newUser.password, salt)
         await newUser.save();
         // generate a token
-        const usr = { _id: `${newUser._id}`, name: `${newUser.firstName} ${newUser.lastName}`, email: `${newUser.email}` }
+        const usr = { _id: `${newUser._id}`}
         const token = jwt.sign({ usr }, process.env.MON_SECRET, { expiresIn: '1h' })
         res.cookie('jwt', token, { httpOnly: true, })
         res.status(302).redirect(`/blogs`);
@@ -96,8 +96,13 @@ const blogs = async (req, res) => {
     }
 }
 
-const createBlog_get = (req, res) => {
-        res.render('createBlog', {name : req.usr.name, email:req.usr.email});
+const createBlog_get = async (req, res) => {
+    const userId = req.usr._id;
+    try{
+        const user = await User.findById(userId);
+        const name = `${user.firstName} ${user.lastName}`;
+        res.render('createBlog', {name, email: user.email});
+    }catch(err){console.log(err)}
 }
 
 const createBlog = async (req, res) => {
@@ -145,14 +150,19 @@ const updateProfil = async (req, res) => {
 }
 
 const addComment = async (req,res)=>{
-    const user = req.usr._id;
+    const id = req.usr._id;
     const { blogId, comment} = req.body;
     try {
+        const user = await User.findById(id);
+        if(!user){
+            return res.status(404).json({ error: 'user not found'})
+        }
+        const userName = `${user.firstName} ${user.lastName}`
         const blog = await Blog.findById(blogId);
         if(!blog) {
-            res.status(404).json({ message: 'blog introuvable'});
+           return res.status(404).json({ message: 'blog introuvable'});
         } 
-        blog.comments.push({ author: user, content: comment});
+        blog.comments.push({ author: userName, content: comment});
         blog.save();
         res.redirect('/blogs')
     }catch(err){

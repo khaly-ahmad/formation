@@ -122,18 +122,28 @@
                     </div>
                     <div class="comment-output">
                         <div class="header-comment">
-                            <h3> comments </h3>
+                            <h3> comments  <%=blog.comment.length %></h3>
                             <i class="bx bx-x"></i>
                         </div>
                         <% blog.comment.forEach(comment => { %>
-                         <p><%= comment.content %></p>
+                        <hr style="width: 100%;">
+                        <div class="content">
+                            <div class="authorProfil">
+                                <img src="<%= myProfile %>" alt="">
+                                <span>
+                                    <h4 style="color: #4702a8;"><%= comment.author %></h4>
+                                    <p>12 jan 2024</p>
+                                </span>
+                            </div>
+                            <p> <%=comment.content %></p>
+                        </div>
                         <% }) %>
                     </div>
                     <div class="comment">
                         <img src="<%=myProfile %>" alt="">
                         <form action="/blogs/comment" method="post" class="comment-form">
                             <input type="hidden" name="blogId" value="<%=blog._id%>">
-                            <input type="text" name="comment" placeholder="comment your opinion">
+                            <textarea type="text" name="comment" placeholder="comment your opinion"></textarea>
                             <button type="submit">
                                 <i class='bx bx-send'></i>
                             </button>
