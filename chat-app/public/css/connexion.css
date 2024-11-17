@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../images/nature.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    padding: 15px;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+}
+
+form h1 {
+    width: fit-content;
+    background: url('../images/blured.png')no-repeat center;
+    background-size: cover;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 55px;
+    margin: auto;
+}
+
+label,h1,button {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+label {
+    font-size: 20px;
+    margin: 8px 0 4px;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    font-size: 18px;
+    padding: 5px 8px;
+    margin: 0px 0 8px;
+    border: none;
+    border-bottom: #040425 solid 1px;
+    background-color: transparent;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #040425;
+}
+
+p {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+button {
+    border: none;
+    background-color: #fdfdfe;
+    color: #040425;
+    font-size: larger;
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
+}

@@ -1,4 +1,3 @@
-// 
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -22,8 +21,7 @@ const post_login = async (req, res) => {
         }
         const users = await User.find();
         setCookies(user._id,res);
-        const _id = req.userId;
-        res.status(200).json({ _id });
+        res.redirect(302,'/api/users');
     } catch (error) {
         console.log(error)
     }
@@ -51,18 +49,18 @@ const post_signup = async (req, res) => {
         newUser.password = await bcrypt.hash(newUser.password, salt)
         await newUser.save();
         setCookies(newUser._id,res);
-        res.status(200).json({ newUser });
+        res.redirect(302,'/api/users');
     } catch (error) {
         console.log(error);
     }
 }
 
 const get_login = (req, res) => {
-    res.status(200).json({ greating: "hello everybody" });
+    res.status(200).render('login');
 }
 
 const get_signup = (req, res) => {
-    res.status(200).json({ information: "you can signup here" });
+    res.status(200).render('signup');
 }
 
 module.exports = { get_login, post_login, get_signup, post_signup };

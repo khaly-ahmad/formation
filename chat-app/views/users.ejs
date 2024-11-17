@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/app.css">
+    <title>conversations</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="users-count">
+            <h1> Users </h1>
+            <% users.forEach(user=> { %>
+                <a href="">
+                    <img src="/images/nature.png">
+                    <div class="detail-user">
+                        <span data-receiverId="<%= user._id %>">
+                            <%= user.fullname %>
+                        </span>
+                        <p>12 min ago</p>
+                    </div>
+                </a>
+                <% }) %>
+        </div>
+        <div class="conversation">
+            <h1> conversation </h1>
+            <div class="messages-container">
+                
+            </div>
+            <form action="" method="post">
+                <textarea id="messageInput" name="messageInput" placeholder="write a message"></textarea>
+                <button id="sendBtn" type="submit"><i class='bx bx-send'></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- <script src="/js/socket.io.js"></script> -->
+    <script>
+       /* let receiverId;
+        document.querySelectorAll('a').forEach((a)=>{
+            a.addEventListener('click',(e)=>{
+                e.preventDefault()
+                const receiverId = a.querySelector('span').getAttribute('data-receiverId');
+            })
+        })
+        const socket = io('http://localhost:3000/api/users');
+
+        // L'utilisateur connecté rejoint sa salle
+        const senderId = " " ; // Utilisateur connecté (géré côté serveur)
+        socket.emit("join", senderId);
+
+        // Envoyer un message
+        const sendMessage = (receiverId, message) => {
+            socket.emit("sendMessage", { senderId , receiverId, message });
+        };
+
+        // Recevoir un message
+        socket.on("receiveMessage", (data) => {
+            console.log("Message reçu :", data);
+            //  Afficher le message dans l'interface utilisateur
+            const chatBox = document.querySelector(".messages-container");
+            chatBox.innerHTML += `<p><strong>${data.senderId}</strong>: ${data.message}</p>`;
+        });
+
+        // Exemple d'envoi de message (appelle cette fonction via un formulaire ou bouton)
+        document.getElementById("sendBtn").addEventListener("click", () => {
+            const message = document.getElementById("messageInput").value;
+            sendMessage(receiverId, message);
+        });*/
+    </script>
+
+</body>
+
+</html>
