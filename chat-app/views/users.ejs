@@ -30,45 +30,24 @@
             <div class="messages-container">
                 
             </div>
-            <form action="" method="post">
+            <form action="/api/message" method="post">
                 <textarea id="messageInput" name="messageInput" placeholder="write a message"></textarea>
                 <button id="sendBtn" type="submit"><i class='bx bx-send'></i></button>
             </form>
         </div>
     </div>
-    <!-- <script src="/js/socket.io.js"></script> -->
+    
     <script>
-       /* let receiverId;
+        let receiverId;
         document.querySelectorAll('a').forEach((a)=>{
             a.addEventListener('click',(e)=>{
                 e.preventDefault()
                 const receiverId = a.querySelector('span').getAttribute('data-receiverId');
+                console.log(receiverId);
             })
         })
-        const socket = io('http://localhost:3000/api/users');
-
-        // L'utilisateur connecté rejoint sa salle
-        const senderId = " " ; // Utilisateur connecté (géré côté serveur)
-        socket.emit("join", senderId);
-
-        // Envoyer un message
-        const sendMessage = (receiverId, message) => {
-            socket.emit("sendMessage", { senderId , receiverId, message });
-        };
-
-        // Recevoir un message
-        socket.on("receiveMessage", (data) => {
-            console.log("Message reçu :", data);
-            //  Afficher le message dans l'interface utilisateur
-            const chatBox = document.querySelector(".messages-container");
-            chatBox.innerHTML += `<p><strong>${data.senderId}</strong>: ${data.message}</p>`;
-        });
-
-        // Exemple d'envoi de message (appelle cette fonction via un formulaire ou bouton)
-        document.getElementById("sendBtn").addEventListener("click", () => {
-            const message = document.getElementById("messageInput").value;
-            sendMessage(receiverId, message);
-        });*/
+        const senderId ='<%= senderId %>';
+        console.log(senderId)
     </script>
 
 </body>
