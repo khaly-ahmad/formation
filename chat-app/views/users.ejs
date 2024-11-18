@@ -14,7 +14,7 @@
         <div class="users-count">
             <h1> Users </h1>
             <% users.forEach(user=> { %>
-                <a href="">
+                <a onclick="showMessage()" href="/api/message/<%=user._id %>">
                     <img src="/images/nature.png">
                     <div class="detail-user">
                         <span data-receiverId="<%= user._id %>">
@@ -28,26 +28,44 @@
         <div class="conversation">
             <h1> conversation </h1>
             <div class="messages-container">
-                
+                <% if (messages !=="" ) {%>
+                    <% messages.forEach(msg=> { %>
+                        <div class="message <%= id === senderId ? 'received' : 'sent'%>">
+                            <p>
+                                <%= msg.message %>
+                            </p>
+                        </div>
+                        <% }) %>
+                            <% } %>
             </div>
-            <form action="/api/message" method="post">
-                <textarea id="messageInput" name="messageInput" placeholder="write a message"></textarea>
-                <button id="sendBtn" type="submit"><i class='bx bx-send'></i></button>
+            <form id="form" method="post">
+                <textarea id="messageInput" name="message" placeholder="write a message"></textarea>
+                <button onclick="sendMessage()" id="sendBtn" type="submit"><i class='bx bx-send'></i></button>
             </form>
         </div>
     </div>
-    
+
     <script>
-        let receiverId;
-        document.querySelectorAll('a').forEach((a)=>{
-            a.addEventListener('click',(e)=>{
-                e.preventDefault()
-                const receiverId = a.querySelector('span').getAttribute('data-receiverId');
-                console.log(receiverId);
-            })
+
+        let message = document.getElementById('messageInput');
+        let currentPath = window.location.pathname;
+        let parts = currentPath.split('/');
+        let id = parts[parts.length - 1];
+        let links = document.querySelectorAll('a');
+        const form = document.getElementById('form');
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+                form.style.display = 'flex';
+            } else if (currentPath === "/api/message/<%= senderId %>") {
+                form.style.display = 'none';
+            }
         })
-        const senderId ='<%= senderId %>';
-        console.log(senderId)
+        function sendMessage() {
+            if (message.value === "") {
+                return;
+            }
+        }
     </script>
 
 </body>

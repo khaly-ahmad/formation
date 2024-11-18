@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> chat app </title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: antiquewhite;
+        }
+        .app {
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            padding: 5px;
+        }
+        .chatBox {
+            height: 340px;
+            background-color: antiquewhite;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+        input {
+            flex: 1;
+            font-size: 18px;
+            padding: 10px 8px;
+            border: 1px solid green;
+            outline: none;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="chatBox">
+
+        </div>
+        <form >
+            <input id="messageInput" type="text" placeholder="enter a message">
+            <button id="btn">send</button>
+        </form>
+    </div>
+    <script>
+        const socket = io();
+        const chatBox = document.querySelector('.chatBox');
+        const input = document.querySelector('#messageInput');
+        socket.on('connect',()=>{
+            console.log('user connected');
+            document.getElementById('btn').addEventListener('click',(e)=>{
+                e.preventDefault();
+                //send message to the server
+                socket.emit('message',input.value);
+                input.value = "";
+            });
+        });
+        
+        socket.on('serverMessage',(message)=>{
+            const p = document.createElement('p');
+            p.textContent = message;
+            chatBox.appendChild(p);
+            console.log(message)
+        })
+
+    </script>
+</body>
+</html>

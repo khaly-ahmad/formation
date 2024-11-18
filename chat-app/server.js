@@ -9,7 +9,7 @@ const path = require('path');
 
 // connect to DB and express server
 module.exports = mongoose.connect(process.env.URI)
-    .then(app.listen(3000, () => {
+    .then(app.listen(3000,'192.168.1.138', () => {
         console.log('server listening on http://localhost:3000/api/login')
     })).catch((err) => {
         console.log(err);

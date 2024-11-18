@@ -19,9 +19,8 @@ const post_login = async (req, res) => {
         if (!user || !isMatch) { 
             return res.status(400).json({ error: "email or password incorrect" })
         }
-        const users = await User.find();
         setCookies(user._id,res);
-        res.redirect(302,'/api/users');
+        res.redirect(302,`/api/message/${user._id}`);
     } catch (error) {
         console.log(error)
     }
@@ -49,7 +48,7 @@ const post_signup = async (req, res) => {
         newUser.password = await bcrypt.hash(newUser.password, salt)
         await newUser.save();
         setCookies(newUser._id,res);
-        res.redirect(302,'/api/users');
+        res.redirect(302,`/api/message/${newUser._id}`);
     } catch (error) {
         console.log(error);
     }
