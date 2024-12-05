@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background fixed</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .margin {
+            height: 600px;
+            width: 100%;
+            background-color: rebeccapurple;
+        }
+        .container {
+            height: 500px;
+            width: 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 40px;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            color: rgb(96, 19, 19);
+            text-transform: uppercase;
+            font-family: arial;
+            position: relative;
+        }
+        h1::before {
+            content: attr(data-containt);
+            position: absolute;
+            inset: 0;
+            color: transparent;
+            -webkit-text-stroke: 2px white;
+        }
+        p{
+            margin: 100px 60px;
+            font-size: 30px;
+            color: aquamarine;
+        }
+
+        .content{
+            position: relative;
+            transform: perspective(3d);
+            perspective: 1000px;
+        }
+
+        .box {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 400px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+
+        .box:nth-child(2n) {
+            background-image: url('../images/04.jpg');
+        }
+        .box:nth-child(2n+1) {
+            background-image: url('../images/06.jpg');
+            transform: translateZ(-450px);
+        }
+    </style>
+</head>
+<body>
+    <div class="margin"></div>
+    <div class="container" style="background-image: url('../images/biologie.jpg');">
+        <h1 data-containt="HELLO EVERYBODY" >hello everybody</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit unde iure suscipit, aliquid quas consequatur vel dolorum! Quisquam fugiat sit dolore hic ad molestias, possimus doloribus recusandae expedita dolores.</p>
+    </div>
+    <div class="margin"></div>
+    <div class="container" style="background-image: url('../images/camion.jpg');">
+        <h1>hello everybody</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit unde iure suscipit, aliquid quas consequatur vel dolorum! Quisquam fugiat sit dolore hic ad molestias, possimus doloribus recusandae expedita dolores.</p>
+    </div>
+    <div class="margin"></div>
+    <div class="container" style="background-image: url('../images/aigle.webp');">
+        <h1>hello everybody</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit unde iure suscipit, aliquid quas consequatur vel dolorum! Quisquam fugiat sit dolore hic ad molestias, possimus doloribus recusandae expedita dolores.</p>
+    </div>
+    <div class="margin"></div>
+    <div class="container">
+        <div class="content">
+            <div class="box" style="--position:1"></div>
+            <!-- <div class="box" style="--position:2"></div>
+            <div class="box" style="--position:3"></div>
+            <div class="box" style="--position:4"></div>
+            <div class="box" style="--position:5"></div>
+            <div class="box" style="--position:6"></div>
+            <div class="box" style="--position:7"></div>
+            <div class="box" style="--position:8"></div>
+            <div class="box" style="--position:9"></div> -->
+        </div>
+    </div>
+    
+</body>
+</html>

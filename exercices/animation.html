@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animation.css">
+    <title>animation</title>
+</head>
+
+<body>
+
+    <div class="conatiner">
+        <div class="item"></div>
+        <div class="public item1"></div>
+        <div class="item"></div>
+        <div class="public item2"></div>
+        <div class="item"></div>
+        <div class="public item3"></div>
+        <div class="item"></div>
+        <div class="public item4"></div>
+        <div class="item"></div>
+        <div class="public item5"></div>
+        <div class="item"></div>
+        <div class="public item6"></div>
+        <div class="item"></div>
+        <div class="public item7"></div>
+    </div>
+
+    <script>
+        const item1 = document.querySelector('.item2');
+        function checkVisibility(){
+            const rect = item1.getBoundingClientRect();
+            const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+            if(isVisible){
+                item1.style.animationName = 'visible'
+            }
+            else {
+                item1.style.animationName = '';
+            }
+        }
+
+        window.addEventListener('scroll',checkVisibility);
+        
+    </script>
+
+</body>
+
+</html>
