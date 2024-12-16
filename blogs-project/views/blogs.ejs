@@ -107,9 +107,9 @@
                             <img src="../images/message-rounded-dots-regular-24.png" alt="">
                             <span><%=blog.comment.length %></span>
                         </div>
-                        <div class="icon">
+                        <div class="icon likeIcon">
                             <img src="../images/like-regular-24.png" alt="">
-                            <span>34k</span>
+                            <span class="output">0</span>
                         </div>
                         <div class="icon">
                             <img src="../images/dislike-solid-24.png" alt="">
@@ -162,41 +162,15 @@
                     </label>
                 </form>
                 <hr>
-                <div id="friend-message">
-                    <img src="../images/monPC.webp" alt="friend profil ">
-                    <div class="friend">
-                        <span class="name">Aicha BB</span>
-                        <span class="time"> 2 min Ego</span>
+                <% allUsers.forEach(user => { %>
+                    <div id="friend-message">
+                        <img src="../images/monPC.webp" alt="friend profil ">
+                        <div class="friend">
+                            <span class="name"> <%= user.firstName%> <%=user.lastName%></span>
+                            <span class="time"> 2 min Ego</span>
+                        </div>
                     </div>
-                </div>
-                <div id="friend-message">
-                    <img src="../images/clouds-5.jpg" alt="friend profil ">
-                    <div class="friend">
-                        <span class="name">Abdoullah</span>
-                        <span class="time"> 8 min Ego</span>
-                    </div>
-                </div>
-                <div id="friend-message">
-                    <img src="../images/biologie.jpg" alt="friend profil ">
-                    <div class="friend">
-                        <span class="name">ibrahim </span>
-                        <span class="time"> 10 min Ego</span>
-                    </div>
-                </div>
-                <div id="friend-message">
-                    <img src="../images/militaire.jpg" alt="friend profil ">
-                    <div class="friend">
-                        <span class="name">aboubakr</span>
-                        <span class="time"> 20 min Ego</span>
-                    </div>
-                </div>
-                <div id="friend-message">
-                    <img src="../images/clouds-5.jpg" alt="friend profil ">
-                    <div class="friend">
-                        <span class="name">aliou</span>
-                        <span class="time"> 2h Ego</span>
-                    </div>
-                </div>
+                <% }) %>
             </div>
         </aside>
     </main>

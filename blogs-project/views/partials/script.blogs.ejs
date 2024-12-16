@@ -9,4 +9,14 @@
             })
         })
     })
+
+    const likeBtn = document.querySelectorAll('.likeIcon');
+
+    likeBtn.forEach((btn)=>{
+        let conteur = 0;
+        btn.addEventListener('click',(e)=>{
+            conteur++;
+            btn.querySelector('.output').textContent = conteur;
+        })
+    })
 </script>

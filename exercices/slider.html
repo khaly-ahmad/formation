@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slider.css">
+    <title>my first slider effect</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="list">
+            <div class="item active" style="--bg-color: red; --indice: 1"></div>
+            <div class="item" style="--bg-color: blue; --indice: 2"></div>
+            <div class="item" style="--bg-color: yellow; --indice: 3"></div>
+            <div class="item" style="--bg-color: green; --indice: 4"></div>
+            <div class="item" style="--bg-color: gray; --indice: 5"></div>
+            <div class="item" style="--bg-color: pink; --indice: 6"></div>
+        </div>
+        <div class="btn-slider">
+            <span class="prev"> < </span>
+            <span class="next"> > </span>
+        </div>
+    </div>
+
+    <script>
+        const list = document.querySelector('.container .list');
+        const children = Array.from(list.children);
+        const span = document.querySelectorAll('span');
+        span.forEach(sp => {
+            sp.addEventListener('click', (e) => {
+                const btn = e.target.classList.value
+                console.log(btn);
+                if (btn === 'next') {
+                    list.append(children[0])
+                    children.push(children.shift());
+
+                } else {
+                    list.prepend(children[children.length - 1]);
+                    children.unshift(children.pop());
+                }
+                children.forEach((child, index) => {
+                    if (index === 1) {
+                        child.classList.add('active');
+                    } else {
+                        child.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

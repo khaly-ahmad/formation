@@ -72,6 +72,7 @@ const blogs = async (req, res) => {
     const id = req.usr._id;
     try {
         const user = await User.findById(id);
+        const allUsers = await User.find().select('-_id -profil -email -password -__v');
         const name = `${user.firstName} ${user.lastName}`
         const email = `${user.email}`
         const myProfile = `${user.profil}`
@@ -90,7 +91,7 @@ const blogs = async (req, res) => {
             const _id = blog._id;
             myBlogs.push({ _id, name, profile, content, image, date, comment: blog.comments });
         });
-        res.render('blogs', { myBlogs , name, email, myProfile });
+        res.render('blogs', { myBlogs , name, email, myProfile, allUsers });
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
